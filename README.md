@@ -29,7 +29,7 @@ A first step for Luqma project to say the light was planning, a critical step to
 
 
 - **Collaborative Board**: A board shared among team memebers to assign tasks and track prograss. | 
-[Notion]() |
+[Notion](https://www.notion.so/Tasks-24765872718a80178886d12cdcce7fa5) |
 
 Following the planning, the development has mainly resulted in 2 main outcomes, a front-end and a backend developed and connected using the MERN Stack (MongoDB, Express, React, Node.js). <br>
 
@@ -42,7 +42,7 @@ Following the planning, the development has mainly resulted in 2 main outcomes, 
 - Node.js
 
 ## Wireframes
-**w1**
+[Initial Wireframes](https://drive.google.com/file/d/1YB0MhtIkYtj9ExbQ0EiqymQ-cjfsmWzi/view)
 
 
 
