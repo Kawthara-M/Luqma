@@ -29,7 +29,7 @@ A first step for Luqma project to say the light was planning, a critical step to
 
 
 - **Collaborative Board**: A board shared among team memebers to assign tasks and track prograss. | 
-[Notion](https://www.notion.so/Tasks-24765872718a80178886d12cdcce7fa5) |
+[Notion](https://www.notion.so/Tasks-24765872718a80178886d12cdcce7fa5](https://stellar-ground-30c.notion.site/Tasks-24765872718a80178886d12cdcce7fa5) |
 
 Following the planning, the development has mainly resulted in 2 main outcomes, a front-end and a backend developed and connected using the MERN Stack (MongoDB, Express, React, Node.js). <br>
 
