@@ -1,6 +1,6 @@
 <h1>
   <img src="assets/donut-unscreen.gif"  width="30" height="30" style="vertical-align:middle; filter: drop-shadow(0 0 1rem rgba(225, 184, 225, 1));">
-  Cat-ch It!
+  Luqma!
 </h1>
 
 **Date** Aug / 06 / 2025 <br>
