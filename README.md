@@ -41,9 +41,6 @@ Following the planning, the development has mainly resulted in 2 main outcomes, 
 - React
 - Node.js
 
-## User Stories
-
-
 ## Wireframes
 **w1**
 
