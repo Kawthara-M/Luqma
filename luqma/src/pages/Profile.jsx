@@ -3,6 +3,6 @@ import UserDetails from '../components/UserDetails'
 import PreviousOrderList from '../components/PreviousOrderList'
 
 const Profile = () => {
-  return <></>
+  return <div></div>
 }
 export default Profile
