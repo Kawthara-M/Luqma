@@ -6,7 +6,7 @@
 **Date** Aug / 06 / 2025 <br>
 **Developed By**  [Kawthar Mohammad](https://github.com/Kawthara-M) | [Yara](https://github.com/Yara-Waleed) | [Fatima Albasri](https://github.com/fatemaAlbasri)
 
-## Description
+## 📌 Description
 Luqma, a matchmaking platform connecting customers, resturants, and delivery in one platform. Inspired by platforms like Talabat & Jahez, Luqma aims to streamline the food ordering experience from browsing to doorstep delivery.
 <br>
 <div align="center">
@@ -14,7 +14,7 @@ Luqma, a matchmaking platform connecting customers, resturants, and delivery in 
 </div>
 
 
-## Getting Started
+## 🚀 Getting Started
 
 A first step for Luqma project to see the light was planning, a critical stage to guide development. It mainly resulted in:
 
@@ -35,20 +35,20 @@ Following the planning, the development has mainly resulted in 2 main outcomes, 
 
 | [Luqma Deployed Version]() |
 
-## Technologies Used
+## ⚙️ Technologies Used
 - MongoDB
 - Express
 - React
 - Node.js
 
-## Wireframes
+## 🗺️ Wireframes
 The following wireframes present a visual blueprint of the application's user interface and layout structure. Designed in a low-fidelity format, these wireframes focus on content placement and user interactions without incorporating final design elements such as colors, fonts, or images.
 | [Wireframes Public GoogleDrive](https://drive.google.com/file/d/1YB0MhtIkYtj9ExbQ0EiqymQ-cjfsmWzi/view) |
 
 
 
 ---
-### **Future Enhancements**
+### ✨ **Future Enhancements**
 
 ---
 ### **Credits**
