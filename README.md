@@ -4,7 +4,7 @@
 </h1>
 
 **Date** Aug / 06 / 2025 <br>
-**Developed By**  [Kawthar Mohammad](https://github.com/Kawthara-M) | [Yara Ismaeel ](https://github.com/Yara-Waleed) | [Fatima Albasri](https://github.com/fatemaAlbasri)
+**Developed By**  [Kawthar Mohammad](https://github.com/Kawthara-M) | [Yara Ismaeel](https://github.com/Yara-Waleed) | [Fatima Albasri](https://github.com/fatemaAlbasri)
 
 ## Description
 Luqma, a matchmaking platform connecting customers, resturants, and delivery in one platform. Inspired by platforms like Talabat & Jahez, Luqma aims to streamline the food ordering experience from browsing to doorstep delivery.
@@ -16,7 +16,7 @@ Luqma, a matchmaking platform connecting customers, resturants, and delivery in 
 
 ## Getting Started
 
-A first step for Luqma project to say the light was planning, a critical step to guide development. It mainly resulted in:
+A first step for Luqma project to see the light was planning, a critical stage to guide development. It mainly resulted in:
 
 - **Entity Relationship Diagram (ERD)**: the main guide of schema and database managment. <br>
 
@@ -28,8 +28,8 @@ A first step for Luqma project to say the light was planning, a critical step to
   <img src="./assets/component-hirearchy-diagram.png" width="45%" height="200px" alt="Logo">
 
 
-- **Collaborative Board**: A board shared among team memebers to assign tasks and track prograss. | 
-[Notion](https://www.notion.so/Tasks-24765872718a80178886d12cdcce7fa5](https://stellar-ground-30c.notion.site/Tasks-24765872718a80178886d12cdcce7fa5) |
+- **Collaborative Board**: A board shared among team memebers to assign tasks and track prograss.
+ | [Notion](https://stellar-ground-30c.notion.site/Tasks-24765872718a80178886d12cdcce7fa5) |
 
 Following the planning, the development has mainly resulted in 2 main outcomes, a front-end and a backend developed and connected using the MERN Stack (MongoDB, Express, React, Node.js). <br>
 
@@ -43,7 +43,7 @@ Following the planning, the development has mainly resulted in 2 main outcomes, 
 
 ## Wireframes
 The following wireframes present a visual blueprint of the application's user interface and layout structure. Designed in a low-fidelity format, these wireframes focus on content placement and user interactions without incorporating final design elements such as colors, fonts, or images.
-[Initial Wireframes](https://drive.google.com/file/d/1YB0MhtIkYtj9ExbQ0EiqymQ-cjfsmWzi/view)
+| [Wireframes Public GoogleDrive](https://drive.google.com/file/d/1YB0MhtIkYtj9ExbQ0EiqymQ-cjfsmWzi/view) |
 
 
 
@@ -52,6 +52,7 @@ The following wireframes present a visual blueprint of the application's user in
 
 ---
 ### **Credits**
+- Search Functionality Guide: [Medium Platform](https://medium.com/@aniagudo.godson/running-a-simple-search-query-on-mongodb-atlas-using-express-nodejs-2-refining-search-queries-49949ce5c4a1)
 
 
 ---
