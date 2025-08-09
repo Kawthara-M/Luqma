@@ -42,7 +42,7 @@ Following the planning, the development has mainly resulted in 2 main outcomes, 
 - Node.js
 
 ## 🗺️ Wireframes
-The following wireframes present a visual blueprint of the application's user interface and layout structure. Designed in a low-fidelity format, these wireframes focus on content placement and user interactions without incorporating final design elements such as colors, fonts, or images.
+The following wireframes present a visual blueprint of the application's user interface and layout structure. Designed in a low-fidelity format, these wireframes focus on content placement and user interactions without incorporating final design elements such as colors, fonts, or images. <br>
 | [Wireframes Public GoogleDrive](https://drive.google.com/file/d/1YB0MhtIkYtj9ExbQ0EiqymQ-cjfsmWzi/view) |
 
 
