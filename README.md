@@ -20,16 +20,16 @@ A first step for Luqma project to say the light was planning, a critical step to
 
 - **Entity Relationship Diagram (ERD)**: the main guide of schema and database managment. <br>
 
-  <img src="./assets/Luqma-ER.png" width="45%" height="200px" alt="Logo">
+  <img src="./assets/Luqma-ER.png" width="50%" height="200px" alt="Logo">
 
 
 - **Component Hierarchy Diagram**: the cornerstone of building the frontend, designed with Excalidraw. <br>
 
-  <img src="./assets/component-hirearchy-diagram.png" width="45%" height="200px" alt="Logo">
+  <img src="./assets/diagram.png" width="50%" height="200px" alt="Logo">
 
 
 - **Collaborative Board**: A board shared among team memebers to assign tasks and track prograss. | 
-[Notion](https://www.notion.so/Tasks-24765872718a80178886d12cdcce7fa5](https://stellar-ground-30c.notion.site/Tasks-24765872718a80178886d12cdcce7fa5) |
+[Notion](https://stellar-ground-30c.notion.site/Tasks-24765872718a80178886d12cdcce7fa5) |
 
 Following the planning, the development has mainly resulted in 2 main outcomes, a front-end and a backend developed and connected using the MERN Stack (MongoDB, Express, React, Node.js). <br>
 
