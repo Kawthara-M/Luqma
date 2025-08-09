@@ -9,17 +9,15 @@ export const SignUpCustomer = async (data) => {
   }
 }
 
-// for sign in
-// export const SignInUser = async (data) => {
-//   try {
-//     const res = await Customer.post('/auth/sign-in', data)
-//     // Set the current signed in users token to localStorage
-//     localStorage.setItem('token', res.data.token)
-//     return res.data.user
-//   } catch (error) {
-//     throw error
-//   }
-// }
+export const SignInUser = async (data) => {
+  try {
+    const res = await Customer.post('/auth/sign-in', data)
+    localStorage.setItem('token', res.data.token)
+    return res.data.user
+  } catch (error) {
+    throw error
+  }
+}
 
 // if customer still has a valid session
 // export const CheckSession = async () => {
