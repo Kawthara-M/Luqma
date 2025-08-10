@@ -2,10 +2,11 @@ import Meal from "./Meal"
 const Menu = ({ meals }) => {
   return (
     <>
-    {/* we need container to show all meals */}
-      {meals.map((meal) => (
-        <Meal meal={meal} />
-      ))}
+      <div className="menu-container">
+        {meals.map((meal) => (
+          <Meal meal={meal} />
+        ))}
+      </div>
     </>
   )
 }
