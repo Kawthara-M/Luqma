@@ -1,4 +1,3 @@
-
 import './App.css'
 import { useState, useEffect } from 'react'
 import Ckechout from './pages/Checkout'
@@ -16,7 +15,7 @@ import About from './pages/About'
 function App() {
   const [customer, setCustomer] = useState(null)
 
-    const checkToken = async () => {
+  const checkToken = async () => {
     const userData = await CheckSession()
     setCustomer(userData)
   }
@@ -27,22 +26,28 @@ function App() {
   }
 
   useEffect(() => {
-    const token = localStorage.getItem("token")
+    const token = localStorage.getItem('token')
     if (token) {
       checkToken()
     }
   }, [])
   return (
     <>
-      <Navbar handleLogOut={handleLogOut}/>
+      <Navbar handleLogOut={handleLogOut} />
 
       <Routes>
         <Route path="/Home" element={<Home />} />
         <Route path="auth/sign-up" element={<SignUp />} />
-        <Route path="auth/sign-in" element={<SignIn setCustomer={setCustomer} />} />
+        <Route
+          path="auth/sign-in"
+          element={<SignIn setCustomer={setCustomer} />}
+        />
         <Route path="/about" element={<About />} />
         <Route path="/profile/:id" element={<Profile />} />
-        <Route path="/restaurants/:id" element={<Restaurant customer={customer}/>} />
+        <Route
+          path="/restaurants/:id"
+          element={<Restaurant customer={customer} />}
+        />
       </Routes>
     </>
   )

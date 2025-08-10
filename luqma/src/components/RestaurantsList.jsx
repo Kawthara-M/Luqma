@@ -1,14 +1,14 @@
-import { Link } from "react-router-dom"
-import { useState, useEffect } from "react"
-import axios from "axios"
-import Restaurant from "./Restuatant"
+import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import Restaurant from './Restuatant'
 
-const RestaurantsList = ({ }) => {
+const RestaurantsList = ({}) => {
   const [restaurants, setRestaurants] = useState([])
 
   useEffect(() => {
     const getRestaurants = async () => {
-      const response = await axios.get("http://localhost:3010/restaurants")
+      const response = await axios.get('http://localhost:3010/restaurants')
       setRestaurants(response.data)
     }
     getRestaurants()

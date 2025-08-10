@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
+import Restaurant from './Restuatant'
 
-export default function RestaurantFilter() {
+const Category = () => {
   const [cuisines, setCuisines] = useState([])
   const [restaurants, setRestaurants] = useState([])
   const [loading, setLoading] = useState(false)
@@ -9,7 +11,6 @@ export default function RestaurantFilter() {
 
   useEffect(() => {
     getCuisineTypes()
-    getAllResturantes()
   }, [])
 
   const getCuisineTypes = async () => {
@@ -17,21 +18,11 @@ export default function RestaurantFilter() {
       const response = await axios.get(
         'http://localhost:3010/restaurants/cuisines'
       )
+      console.log('Cuisines:', response.data)
       setCuisines(response.data)
     } catch (err) {
       setError('Failed to load cuisines')
-    }
-  }
-
-  const getAllResturantes = async () => {
-    setLoading(true)
-    try {
-      const response = await axios.get('http://localhost:3010/restaurants')
-      setRestaurants(response.data)
-      setLoading(false)
-    } catch (err) {
-      setError('Failed to load restaurants')
-      setLoading(false)
+      console.error(err)
     }
   }
 
@@ -39,10 +30,6 @@ export default function RestaurantFilter() {
     setLoading(true)
     setError(null)
     try {
-      if (!cuisineType) {
-        await getAllResturantes()
-        return
-      }
       const response = await axios.get(
         `http://localhost:3010/restaurants/cuisine/${cuisineType}`
       )
@@ -51,6 +38,7 @@ export default function RestaurantFilter() {
     } catch (err) {
       setError('Failed to load filtered restaurants')
       setLoading(false)
+      console.error(err)
     }
   }
 
@@ -58,30 +46,28 @@ export default function RestaurantFilter() {
     <div>
       <h2>Categories</h2>
       <div>
-        <button onClick={() => handleFilterClick('')}>All</button>
-
-        {cuisines.map((cuisine) => (
-          <button key={cuisine} onClick={() => handleFilterClick(cuisine)}>
-            {cuisine}
-          </button>
-        ))}
+        {cuisines.length === 0 && !error && <p>Loading categories...</p>}
+        {cuisines.length > 0 &&
+          cuisines.map((cuisine) => (
+            <button key={cuisine} onClick={() => handleFilterClick(cuisine)}>
+              {cuisine}
+            </button>
+          ))}
       </div>
 
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
 
-      <div>
-        {restaurants.length === 0 && !loading && <p>No restaurants found</p>}
+      <div className="restaurant-list">
         {restaurants.map((restaurant) => (
-          <div key={restaurants._id}>
-            <h3>{restaurants.name}</h3>
-            <p>Cuisine: {restaurants.cuisineType}</p>
-            <p>Phone: {restaurants.phone}</p>
-            <p>Address: {restaurants.address}</p>
-            <img src={restaurants.image} alt={restaurants.name} />
-          </div>
+          <Link key={restaurant._id} to={`/restaurants/${restaurant._id}`}>
+            <div>
+              <Restaurant restaurant={restaurant} />
+            </div>
+          </Link>
         ))}
       </div>
     </div>
   )
 }
+export default Category
