@@ -2,8 +2,8 @@ import { Link } from "react-router-dom"
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 import axios from "axios"
-/* import Menu from "./Menu"
-import MenuBar from "./MenuBar" */
+import Menu from "../components/Menu"
+// import MenuBar from "./MenuBar"
 
 const Restaurant = () => {
   const [restaurant, setRestaurant] = useState("")
@@ -26,8 +26,10 @@ const Restaurant = () => {
   }, [])
   return (
     <>
-      <h3>{restaurant.name}</h3>
-      {meals ? <Menu meals={meals}/> : "no meals"}
+      <div className="restaurant-page">
+        <h2 className="restaurant-name">{restaurant.name}</h2>
+        {meals.length > 0 ? <Menu meals={meals} /> : <p>No meals available.</p>}
+      </div>
     </>
   )
 }
