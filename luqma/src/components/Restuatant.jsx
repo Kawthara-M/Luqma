@@ -1,6 +1,3 @@
-import Menu from "./Menu"
-import MenuBar from "./MenuBar"
-
 const Restaurant = ({ restaurant }) => {
   return (
     <>
