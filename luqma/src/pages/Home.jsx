@@ -10,5 +10,6 @@ const Home = () => {
       <Category />
     </>
   )
+
 }
 export default Home

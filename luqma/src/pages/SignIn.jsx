@@ -1,10 +1,10 @@
-import { useState } from 'react'
-import { SignInCustomer } from '../services/Auth'
-import { useNavigate } from 'react-router-dom'
+import { useState } from "react"
+import { SignInCustomer } from "../services/Auth"
+import { useNavigate, Link } from "react-router-dom"
 
 const SignIn = ({ setCustomer }) => {
   let navigate = useNavigate()
-  const initialState = { email: '', passwordDigest: '' }
+  const initialState = { email: "", passwordDigest: "" }
 
   const [formValues, setFormValues] = useState(initialState)
 
@@ -18,7 +18,7 @@ const SignIn = ({ setCustomer }) => {
     setFormValues(initialState)
     setCustomer(payload)
 
-    navigate('/Home')
+    navigate("/Home")
   }
 
   return (
@@ -53,6 +53,9 @@ const SignIn = ({ setCustomer }) => {
           Sign In
         </button>
       </form>
+      <p style={{ marginTop: "1rem", textAlign: "center" }}>
+        Don’t have an account? <Link to="/auth/sign-up">Sign Up</Link>
+      </p>
     </div>
   )
 }
