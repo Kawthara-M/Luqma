@@ -1,3 +1,4 @@
+
 import './App.css'
 import { useState, useEffect } from 'react'
 import Ckechout from './pages/Checkout'
@@ -9,7 +10,7 @@ import SignUp from './pages/SignUp'
 import SignIn from './pages/SignIn'
 import RestaurantsList from './components/RestaurantsList'
 import { Route, Routes } from 'react-router-dom'
-import Restaurant from './components/Restuatant'
+import Restaurant from './pages/Restuatant'
 import { CheckSession } from './services/Auth'
 import About from './pages/About'
 
@@ -37,6 +38,7 @@ function App() {
   }, []) */
   return (
     <>
+
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -44,8 +46,9 @@ function App() {
         <Route path="/sign-in" element={<SignIn setCustomer={setCustomer} />} />
         <Route path="/about" element={<About />} />
         <Route path="/profile/:id" element={<Profile />} />
+        <Route path="/restaurants/:id" element={<Restaurant />} />
 
-        <Route path="/Home" element={<RestaurantsList />} />
+      
       </Routes>
     </>
   )
