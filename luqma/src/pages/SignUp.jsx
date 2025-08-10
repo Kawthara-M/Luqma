@@ -24,7 +24,7 @@ const SignUp = () => {
     await SignUpCustomer(formValues)
     setFormValues(initialState)
     // need to sign in page
-    navigate('/signin')
+    navigate('/sign-in')
   }
 
   return (
