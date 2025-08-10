@@ -9,7 +9,7 @@ import Navbar from './components/Navbar'
 import SignUp from './pages/SignUp'
 import SignIn from './pages/SignIn'
 import { Route, Routes } from 'react-router-dom'
-import Restaurant from './pages/Restuatant'
+import Restaurant from './pages/Restaurant'
 import { CheckSession } from './services/Auth'
 import About from './pages/About'
 

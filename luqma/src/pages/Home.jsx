@@ -2,7 +2,7 @@ import RestaurantsList from '../components/RestaurantsList'
 
 import Category from '../components/Category'
 
-const Home = ({}) => {
+const Home = () => {
   
   return <>
   <RestaurantsList />

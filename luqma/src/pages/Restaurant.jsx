@@ -7,20 +7,27 @@ import MenuBar from "./MenuBar" */
 
 const Restaurant = () => {
   const [restaurant, setRestaurant] = useState("")
+  const [meals, setMeals] = useState([])
   let { id } = useParams()
-  console.log(id)
+
   useEffect(() => {
     const getRestaurant = async (req, res) => {
       const response = await axios.get(
         `http://localhost:3010/restaurants/${id}`
       )
       setRestaurant(response.data)
+      const mealsResponse = await axios.get(
+        `http://localhost:3010/restaurants/${id}/menu`
+      )
+
+      setMeals(mealsResponse.data)
     }
     getRestaurant()
   }, [])
   return (
     <>
       <h3>{restaurant.name}</h3>
+      {meals ? <Menu meals={meals}/> : "no meals"}
     </>
   )
 }
