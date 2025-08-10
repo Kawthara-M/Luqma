@@ -11,6 +11,7 @@ import RestaurantsList from './components/RestaurantsList'
 import { Route, Routes } from 'react-router-dom'
 import Restaurant from './components/Restuatant'
 import { CheckSession } from './services/Auth'
+import About from './pages/About'
 
 function App() {
   const [customer, setCustomer] = useState(null)
@@ -41,6 +42,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/sign-in" element={<SignIn setCustomer={setCustomer} />} />
+        <Route path="/about" element={<About />} />
         <Route path="/profile/:id" element={<Profile />} />
 
         <Route path="/Home" element={<RestaurantsList />} />
