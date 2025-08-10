@@ -9,7 +9,7 @@ export const SignUpCustomer = async (data) => {
   }
 }
 
-export const SignInUser = async (data) => {
+export const SignInCustomer= async (data) => {
   try {
     const res = await Customer.post('/auth/sign-in', data)
     localStorage.setItem('token', res.data.token)
