@@ -16,36 +16,33 @@ import About from './pages/About'
 function App() {
   const [customer, setCustomer] = useState(null)
 
-  /*   const checkToken = async () => {
-    //If a token exists, sends token to localStorage to persist logged in user
+    const checkToken = async () => {
     const userData = await CheckSession()
-    setUser(userData)
+    setCustomer(userData)
   }
 
   const handleLogOut = () => {
-    //Reset all auth related state and clear localStorage
-    setUser(null)
+    setCustomer(null)
     localStorage.clear()
   }
 
   useEffect(() => {
     const token = localStorage.getItem("token")
-    // Check if token exists before requesting to validate the token
     if (token) {
       checkToken()
     }
-  }, []) */
+  }, [])
   return (
     <>
+      <Navbar handleLogOut={handleLogOut}/>
 
-      <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/sign-in" element={<SignIn setCustomer={setCustomer} />} />
+        <Route path="/Home" element={<Home />} />
+        <Route path="auth/sign-up" element={<SignUp />} />
+        <Route path="auth/sign-in" element={<SignIn setCustomer={setCustomer} />} />
         <Route path="/about" element={<About />} />
         <Route path="/profile/:id" element={<Profile />} />
-        <Route path="/restaurants/:id" element={<Restaurant />} />
+        <Route path="/restaurants/:id" element={<Restaurant customer={customer}/>} />
       </Routes>
     </>
   )

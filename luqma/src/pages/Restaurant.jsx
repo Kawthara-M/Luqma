@@ -5,7 +5,7 @@ import axios from "axios"
 import Menu from "../components/Menu"
 // import MenuBar from "./MenuBar"
 
-const Restaurant = () => {
+const Restaurant = ({customer}) => {
   const [restaurant, setRestaurant] = useState("")
   const [meals, setMeals] = useState([])
   let { id } = useParams()
@@ -28,7 +28,7 @@ const Restaurant = () => {
     <>
       <div className="restaurant-page">
         <h2 className="restaurant-name">{restaurant.name}</h2>
-        {meals.length > 0 ? <Menu meals={meals} /> : <p>No meals available.</p>}
+        {meals.length > 0 ? <Menu meals={meals} customer={customer} /> : <p>No meals available.</p>}
       </div>
     </>
   )
