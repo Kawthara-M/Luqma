@@ -9,13 +9,13 @@ import SignUp from "./pages/SignUp"
 import SignIn from "./pages/SignIn"
 import RestaurantsList from "./components/RestaurantsList"
 import { Route, Routes } from "react-router-dom"
-import Restaurant from "./components/Restuatant"
+import Restaurant from "./pages/Restaurant"
 import { CheckSession } from "./services/Auth"
 
 function App() {
   const [customer, setCustomer] = useState(null)
 
-/*   const checkToken = async () => {
+  /*   const checkToken = async () => {
     //If a token exists, sends token to localStorage to persist logged in user
     const userData = await CheckSession()
     setUser(userData)
@@ -36,14 +36,16 @@ function App() {
   }, []) */
   return (
     <>
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/sign-in" element={<SignIn setCustomer={setCustomer} />} />
+        <Route path="/sign-in" element={<SignIn  />} />
 
         <Route path="/profile/:id" element={<Profile />} />
+        <Route path="/restaurants/:id" element={<Restaurant />} />
 
-        <Route path="/Home" element={<RestaurantsList />} />
+      
       </Routes>
     </>
   )
