@@ -40,6 +40,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/sign-in" element={<SignIn setCustomer={setCustomer} />} />
+
+        <Route path="/profile/:id" element={<Profile />} />
+
         <Route path="/Home" element={<RestaurantsList />} />
       </Routes>
     </>

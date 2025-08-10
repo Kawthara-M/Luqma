@@ -17,6 +17,7 @@ const SignIn = ({ setCustomer }) => {
     const payload = await SignInCustomer(formValues)
     setFormValues(initialState)
     setCustomer(payload)
+
     navigate('/Home')
   }
 
