@@ -3,6 +3,8 @@ import RestaurantsList from '../components/RestaurantsList'
 import Category from '../components/Category'
 
 const Home = () => {
-  return <></>
+  return <>
+  <RestaurantsList />
+  </>
 }
 export default Home
