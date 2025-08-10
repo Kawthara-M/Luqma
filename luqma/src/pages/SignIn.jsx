@@ -17,7 +17,6 @@ const SignIn = ({ setCustomer }) => {
     const payload = await SignInCustomer(formValues)
     setFormValues(initialState)
     setCustomer(payload)
-    console.log("in handle submit")
     navigate('/Home')
   }
 
