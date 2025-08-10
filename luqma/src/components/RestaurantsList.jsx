@@ -1,32 +1,20 @@
 import { Link } from 'react-router-dom'
-import { useState, useEffect } from 'react'
-import axios from 'axios'
 import Restaurant from './Restuatant'
 
-const RestaurantsList = ({}) => {
-  const [restaurants, setRestaurants] = useState([])
+const RestaurantsList = ({ restaurants }) => {
+  if (!restaurants) return <p>No resturants</p>
 
-  useEffect(() => {
-    const getRestaurants = async () => {
-      const response = await axios.get('http://localhost:3010/restaurants')
-      setRestaurants(response.data)
-    }
-    getRestaurants()
-  }, [])
   return (
-    <>
-      <div className="restaurant-list">
-        {restaurants
-          ? restaurants.map((restaurant) => (
-              <Link to={`/restaurants/${restaurant._id}`}>
-                <div className="restaurant" key={restaurant._id}>
-                  <Restaurant restaurant={restaurant} />
-                </div>
-              </Link>
-            ))
-          : null}
-      </div>
-    </>
+    <div className="restaurant-list">
+      {restaurants.map((restaurant) => (
+        <Link key={restaurant._id} to={`/restaurants/${restaurant._id}`}>
+          <div className="restaurant">
+            <Restaurant restaurant={restaurant} />
+          </div>
+        </Link>
+      ))}
+    </div>
   )
 }
+
 export default RestaurantsList
