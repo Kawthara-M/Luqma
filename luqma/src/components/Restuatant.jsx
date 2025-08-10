@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom" 
 import Menu from "./Menu"
 import MenuBar from "./MenuBar"
 
@@ -7,7 +8,11 @@ const Restaurant = ({ restaurant }) => {
       {restaurant.image ? (
         <img src={restaurant.image} alt={`${restaurant.name}`} />
       ) : null}
-      <h3>{restaurant.name}</h3>
+
+      <h3>
+        {restaurant.name}
+      </h3>
+
       <h4>{restaurant.cuisineType} Restaurant</h4>
     </>
   )
