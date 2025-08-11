@@ -12,6 +12,7 @@ import { Route, Routes } from 'react-router-dom'
 import Restaurant from './pages/Restaurant'
 import { CheckSession } from './services/Auth'
 import About from './pages/About'
+import OrderPage from './pages/OrderPage'
 
 function App() {
   const [customer, setCustomer] = useState(null)
@@ -50,7 +51,7 @@ function App() {
           element={<Restaurant customer={customer} />}
         />
 
-        <Route path="/order/cart" element={<Order />} />
+        <Route path="/order/cart" element={<OrderPage />} />
       </Routes>
     </>
   )
