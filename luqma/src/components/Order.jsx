@@ -1,9 +1,9 @@
-import RestaurantsList from './RestaurantsList'
+import RestaurantsList from "./RestaurantsList"
 
 const OrderCard = ({ order }) => {
   return (
     <div>
-      <h3>Restaurant: {order.restaurant.name}</h3>
+      <h3>Restaurant: {order.restaurant}</h3>
       <p>Status: {order.status}</p>
       <p>Address: {order.address}</p>
       <p>Total Price: ${order.totalPrice}</p>

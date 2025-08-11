@@ -11,12 +11,14 @@ const Cart = () => {
 
   useEffect(() => {
     const onMount = async () => {
-      const response = await axios.get(`http://localhost:3010/orders`)
+      const response = await axios.get(`http://localhost:3010/cart`)
       setOrders(response.data)
+      console.log(response.data)
+      
 
 
-      const theMeals = await axios.get(`http://localhost:3010/meals`)
-      setMeals(theMeals.data)
+    /*   const theMeals = await axios.get(`http://localhost:3010/meals`)
+      setMeals(theMeals.data) */
     }
 
 
@@ -31,7 +33,8 @@ const Cart = () => {
     <>
       <div>
         <h2>My Order</h2>
-        {orders &&
+        {
+        orders &&
           orders.map((order) => (
             <Meal key={order.id} order={order} meals={meals} />
           ))}

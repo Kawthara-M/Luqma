@@ -34,6 +34,7 @@ const OrderPage = () => {
         },
       })
       setPastOrders(response.data)
+      
     } catch (err) {
       setError("Failed to load past orders.")
     } finally {
@@ -63,7 +64,7 @@ const OrderPage = () => {
         )}
       </section>
 
-      {/* <section>
+      <section>
         <h2>Past Orders</h2>
         {loadingPast ? (
           <p>Loading past orders...</p>
@@ -72,7 +73,7 @@ const OrderPage = () => {
         ) : (
           pastOrders.map((order) => <OrderCard key={order._id} order={order} />)
         )}
-      </section> */}
+      </section>
     </div>
   )
 }
