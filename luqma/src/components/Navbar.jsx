@@ -6,7 +6,7 @@ const Navbar = ({ handleLogout }) => {
     <>
       <nav className="sideNav">
         <Link to="/">home</Link>
-        <Link to="/resturants">Resturants</Link>
+        <Link to="/restaurants">Resturants</Link>
         <Link to="/order">Order</Link>
         <Link to="/profile">Profile</Link>
         <Link to="/about">About Us</Link>
