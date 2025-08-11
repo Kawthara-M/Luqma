@@ -1,7 +1,7 @@
 import './App.css'
 import { useState, useEffect } from 'react'
-// import Ckechout from './pages/Checkout'
-// import Cart from './pages/Cart'
+import Ckechout from './pages/Checkout'
+import Cart from './pages/Cart'
 import Order from './components/Order'
 import Home from './pages/Home'
 import Profile from './pages/Profile'
@@ -36,7 +36,7 @@ function App() {
   }, [])
   return (
     <>
-      <Navbar handleLogOut={handleLogOut} />
+      <Navbar handleLogOut={handleLogOut} customer={customer}/>
 
       <Routes>
         <Route path="/Home" element={<Home />} />
@@ -52,7 +52,9 @@ function App() {
           element={<Restaurant customer={customer} />}
         />
 
-        <Route path="/order/cart" element={<OrderPage />} />
+        <Route path="/orders" element={<OrderPage />} />
+        <Route path="/checkout" element={<Ckechout />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </>
   )

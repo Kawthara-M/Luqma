@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios'
-import OrderCard from '../components/Order'
+import { useEffect, useState } from "react"
+import axios from "axios"
+import OrderCard from "../components/Order"
 const OrderPage = () => {
   const [cartOrders, setCartOrders] = useState([])
   const [pastOrders, setPastOrders] = useState([])
@@ -11,14 +11,15 @@ const OrderPage = () => {
   const getOrders = async () => {
     setLoadingCart(true)
     try {
-      const response = await axios.get('http://localhost:3010/order/cart', {
+      const response = await axios.get("http://localhost:3010/orders", {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
-        }
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
       })
       setCartOrders(response.data)
+      console.log("setCartOrders: " + response.data)
     } catch (err) {
-      setError('Failed to load cart orders.')
+      setError("Failed to load cart orders.")
     } finally {
       setLoadingCart(false)
     }
@@ -27,14 +28,14 @@ const OrderPage = () => {
   const getPastOrders = async () => {
     setLoadingPast(true)
     try {
-      const response = await axios.get('http://localhost:3010/order/cart', {
+      const response = await axios.get("http://localhost:3010/orders", {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
-        }
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
       })
       setPastOrders(response.data)
     } catch (err) {
-      setError('Failed to load past orders.')
+      setError("Failed to load past orders.")
     } finally {
       setLoadingPast(false)
     }

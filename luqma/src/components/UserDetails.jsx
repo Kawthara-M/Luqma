@@ -20,7 +20,7 @@ const UserDetails = ({ customerId }) => {
     console.log('customer id' + customerId)
     if (!customerId) return
 
-    Customer.get(`/customer/profile/${customerId}`)
+    Customer.get(`/profile/${customerId}`)
       .then((res) => {
         setUser(res.data)
         setName(res.data.name)
@@ -35,7 +35,7 @@ const UserDetails = ({ customerId }) => {
   }, [customerId])
 
   const handleSave = () => {
-    Customer.put(`/customer/profile/${customerId}`, { name, email, phone })
+    Customer.put(`/profile/${customerId}`, { name, email, phone })
       .then((res) => {
         setUser(res.data)
         setEditing(false)
@@ -48,7 +48,7 @@ const UserDetails = ({ customerId }) => {
   const handlePasswordUpdate = (e) => {
     e.preventDefault()
     setPasswordMessage('')
-    Customer.put(`/customer/update-password/${customerId}`, {
+    Customer.put(`/profile/update-password/${customerId}`, {
       oldPassword,
       newPassword
     })

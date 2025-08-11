@@ -6,10 +6,9 @@ const Menu = ({ meals, customer }) => {
   const [cart, setCart] = useState(null)
 
   useEffect(() => {
-    console.log("customer is " + customer.id)
     const getCart = async () => {
       try {
-        const response = await axios.get("http://localhost:3010/order/cart", {
+        const response = await axios.get("http://localhost:3010/cart", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -38,7 +37,7 @@ const Menu = ({ meals, customer }) => {
       if (cart) {
         console.log("put, cart has an order for this customer")
         const response = await axios.put(
-          `http://localhost:3010/order/cart/${cart._id}`,
+          `http://localhost:3010/cart/${cart._id}`,
           { mealId },
           {
             headers: {
@@ -50,7 +49,7 @@ const Menu = ({ meals, customer }) => {
         setCart(response.data)
       } else {
         const response = await axios.post(
-          "http://localhost:3010/order/cart",
+          "http://localhost:3010/cart",
           {
             meals: {meal:mealId, quantity:1},
           },
