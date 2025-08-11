@@ -26,7 +26,6 @@ const Category = ({ onSelectCategory }) => {
 
   return (
     <div>
-      <h2>Categories</h2>
       {loading && <p>Loading categories...</p>}
       {error && <p>{error}</p>}
       <div>
