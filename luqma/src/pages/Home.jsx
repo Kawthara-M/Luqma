@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Category from '../components/Category'
 import RestaurantsList from '../components/RestaurantsList'
-import Restaurant from './Restaurant'
+import Restaurant from "../components/Restuatant"
 import Search from '../components/Search'
 
 const Home = () => {
@@ -42,12 +42,12 @@ const Home = () => {
   //search
   const getSearchResults = async (e) => {
     e.preventDefault()
-    console.log(searchQuery)
     const response = await axios.post(`http://localhost:3010/search`, {
       search: searchQuery,
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     })
     setSearchResults(response.data)
+    console.log(response.data)
     toggleSearched(true)
   }
 
@@ -68,10 +68,10 @@ const Home = () => {
         {searched ? (
           <section>
             {searchResults.map((restaurant) => (
-              <Restaurant
-                image={restaurant.image}
+              <Restaurant restaurant={restaurant}
+                /* image={restaurant.image}
                 name={restaurant.name}
-                cuisine={restaurant.cuisineType}
+                cuisine={restaurant.cuisineType} */
               />
             ))}
           </section>
@@ -80,10 +80,10 @@ const Home = () => {
             <h2>Restaurants</h2>
             <section>
               {restaurants.map((restaurant) => (
-                <Restaurant
-                  image={restaurant.image}
+                <Restaurant restaurant={{restaurant}}
+                  /* image={restaurant.image}
                   name={restaurant.name}
-                  cuisine={restaurant.cuisineType}
+                  cuisine={restaurant.cuisineType} */
                 />
               ))}
             </section>
