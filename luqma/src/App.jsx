@@ -50,7 +50,7 @@ function App() {
           path="/restaurants/:id"
           element={<Restaurant customer={customer} />}
         />
-
+        <Route path="/"/>
         <Route path="/order/cart" element={<OrderPage />} />
       </Routes>
     </>
