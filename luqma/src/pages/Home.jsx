@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Category from '../components/Category'
 import RestaurantsList from '../components/RestaurantsList'
+import Restaurant from "../components/Restuatant"
+import Search from '../components/Search'
 
 const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState(null)
@@ -9,6 +11,11 @@ const Home = () => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
+  const [searchResults, setSearchResults] = useState([])
+  const [searched, toggleSearched] = useState(false)
+  const [searchQuery, setSearchQuery] = useState('')
+
+  // category
   useEffect(() => {
 
     const getRestaurants = async () => {
@@ -31,8 +38,58 @@ const Home = () => {
     getRestaurants()
   }, [selectedCategory])
 
+  //search
+  const getSearchResults = async (e) => {
+    e.preventDefault()
+    const response = await axios.post(`http://localhost:3010/search`, {
+      search: searchQuery,
+      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+    })
+    setSearchResults(response.data)
+    console.log(response.data)
+    toggleSearched(true)
+  }
+
+  const handleChange = (event) => {
+    setSearchQuery(event.target.value)
+  }
+
   return (
     <div>
+      <div>
+        <h2>Search Results</h2>
+        <Search
+          onSubmit={getSearchResults}
+          onChange={handleChange}
+          value={searchQuery}
+        />
+
+        {searched ? (
+          <section>
+            {searchResults.map((restaurant) => (
+              <Restaurant restaurant={restaurant}
+                /* image={restaurant.image}
+                name={restaurant.name}
+                cuisine={restaurant.cuisineType} */
+              />
+            ))}
+          </section>
+        ) : (
+          <div>
+            <h2>Restaurants</h2>
+            <section>
+              {restaurants.map((restaurant) => (
+                <Restaurant restaurant={{restaurant}}
+                  /* image={restaurant.image}
+                  name={restaurant.name}
+                  cuisine={restaurant.cuisineType} */
+                />
+              ))}
+            </section>
+          </div>
+        )}
+      </div>
+
       <Category onSelectCategory={setSelectedCategory} />
 
       {loading && <p>Loading restaurants...</p>}

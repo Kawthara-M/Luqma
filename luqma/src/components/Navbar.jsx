@@ -1,12 +1,13 @@
-import Search from "./Search"
-import { Link } from "react-router"
+import Search from './Search'
+import { Link } from 'react-router'
 
-const Navbar = ({handleLogout}) => {
+const Navbar = ({ handleLogout }) => {
   return (
     <>
       <nav className="sideNav">
         <Link to="/Home">home</Link>
         {/* <Link to="/resturants/">Resturants</Link> */}
+
         <Link to="/order">Order</Link>
         <Link to="/profile">Profile</Link>
         <Link to="/about">About Us</Link>
