@@ -21,7 +21,7 @@ const Navbar = ({ handleLogOut, customer }) => {
             ☰
           </button>
           <Link to="/Home" className="brand-logo">
-            🍽️ Foodie
+            🍽️ Luqma
           </Link>
         </div>
 
