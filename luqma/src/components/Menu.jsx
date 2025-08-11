@@ -15,7 +15,6 @@ const Menu = ({ meals, customer }) => {
         })
         if (response.data.length > 0) {
           setCart(response.data[0])
-          console.log("order id: " + response.data[0])
         } else {
           setCart(null)
         }
@@ -27,7 +26,7 @@ const Menu = ({ meals, customer }) => {
     getCart()
   }, [])
 
-  const handleAddToCart = async (mealId) => {
+  const handleAddToCart = async (mealId, mealQuantity) => {
     try {
       if (!customer) {
         alert("You must be signed in to add to cart.")
@@ -35,10 +34,10 @@ const Menu = ({ meals, customer }) => {
       }
 
       if (cart) {
-        console.log("put, cart has an order for this customer")
+
         const response = await axios.put(
           `http://localhost:3010/cart/${cart._id}`,
-          { mealId },
+          { mealId, quantity: mealQuantity },
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -51,7 +50,7 @@ const Menu = ({ meals, customer }) => {
         const response = await axios.post(
           "http://localhost:3010/cart",
           {
-            meals: {meal:mealId, quantity:1},
+            meals: {meal:mealId, quantity:parseInt(mealQuantity)},
           },
           {
             headers: {
@@ -72,7 +71,7 @@ const Menu = ({ meals, customer }) => {
         <Meal
           key={meal._id}
           meal={meal}
-          handleAddtoCart={() => handleAddToCart(meal._id)}
+          handleAddtoCart={(id,qty) => handleAddToCart(meal._id, qty)}
         />
       ))}
     </div>
