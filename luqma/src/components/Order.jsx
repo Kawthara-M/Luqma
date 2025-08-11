@@ -1,29 +1,75 @@
-import RestaurantsList from "./RestaurantsList"
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
-const OrderCard = ({ order }) => {
+export default function OrdersPage() {
+  const [cartOrders, setCartOrders] = useState([])
+  const [pastOrders, setPastOrders] = useState([])
+  const token = localStorage.getItem('token')
+
+  useEffect(() => {
+    // جلب الطلب الحالي (عربة التسوق المفتوحة)
+    axios
+      .get('/cart', {
+        headers: { Authorization: `Bearer ${token}` }
+      })
+      .then((res) => {
+        console.log('Cart orders response:', res.data)
+        if (res.data && !Array.isArray(res.data)) {
+          setCartOrders([res.data])
+        } else {
+          setCartOrders(res.data)
+        }
+      })
+      .catch((err) => console.error(err))
+
+    // جلب الطلبات السابقة (المكتملة)
+    axios
+      .get('/orders', {
+        headers: { Authorization: `Bearer ${token}` }
+      })
+      .then((res) => {
+        console.log('Past orders response:', res.data)
+        setPastOrders(res.data)
+      })
+      .catch((err) => console.error(err))
+  }, [token])
+
   return (
-    <div>
-      <h3>Restaurant: {order.restaurant}</h3>
-      <p>Status: {order.status}</p>
-      <p>Address: {order.address}</p>
-      <p>Total Price: ${order.totalPrice}</p>
-
-      <h4>Meals:</h4>
-      {order.meals && order.meals.length > 0 ? (
-        <ul>
-          {order.meals.map((item) => (
-            <li key={item._id}>
-              {item.meal} - Quantity: {item.quantity}
-            </li>
-          ))}
-        </ul>
+    <div className="orders-page">
+      <h2>My Current Order</h2>
+      {cartOrders.length > 0 ? (
+        cartOrders.map((order) => (
+          <div key={order._id} className="order-card">
+            <h3>{order.restaurant?.name || 'Unnamed Restaurant'}</h3>
+            <p>Status: {order.status}</p>
+            <p>Delivery Man: {order.deliveryMan?.name || 'Not assigned'}</p>
+            <p>Phone: {order.deliveryMan?.phone || '-'}</p>
+            <p>Email: {order.deliveryMan?.email || '-'}</p>
+          </div>
+        ))
       ) : (
-        <p>No meals added.</p>
+        <p>No current orders.</p>
       )}
 
-      <p>Delivery Man: {order.deliveryMan}</p>
+      <h2>Past Orders</h2>
+      {pastOrders.length > 0 ? (
+        pastOrders.map((order) => (
+          <div key={order._id} className="past-order-card">
+            <h3>{order.restaurant?.name || 'Unnamed Restaurant'}</h3>
+            <p>Status: {order.status}</p>
+            <div>
+              {order.meals?.map((m) => (
+                <p key={m._id}>
+                  {m.meal?.name} × {m.quantity}
+                </p>
+              ))}
+            </div>
+            <p>Delivery Man: {order.deliveryMan?.name || 'Not assigned'}</p>
+          </div>
+        ))
+      ) : (
+        <p>No past orders.</p>
+      )}
     </div>
   )
 }
-
-export default OrderCard
