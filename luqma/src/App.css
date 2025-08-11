@@ -24,7 +24,7 @@ body {
 
 .restaurant img {
   width: 100%;
-  height: 200px; 
+  height: 200px;
   object-fit: cover;
   display: block;
   border-bottom: 1px solid #eee;
@@ -76,15 +76,27 @@ body {
 .meal-price {
   font-weight: bold;
 }
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 4rem); /* 4 because the top navbar height is 4 */
+  margin: 0 auto;
+  padding: 0 1rem; 
+  width:50%;
+}
+
+.wrapper-up {
+margin-top: 3rem;
+}
 
 .SignIn-form,
 .signUp-form {
-  max-width: 310px;
-  margin: 3rem auto;
+  margin: 0;
   padding: 2rem;
   border: 1px solid #ddd;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #f7f4f4;
   font-family: Arial, sans-serif;
 }
@@ -154,4 +166,67 @@ body {
 .signUp-form a:hover,
 .SignIn-form a:hover {
   text-decoration: underline;
+}
+
+.sideNav {
+  position: fixed;
+  top: 4rem;
+  left: 0;
+  width: 8rem;
+  height: 100%;
+  background-color: #f9f9f9;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.sideNav.open {
+  transform: translateX(0);
+}
+
+.sideNav a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.sideNav a:hover {
+  color: #6b0606;
+}
+
+.topNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4rem;
+  background-color: #6b0606;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+.topNav-left .toggleBtn {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  color: white;
+  cursor: pointer;
+}
+
+.topNav a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.topNav img {
+  height:1.5rem;
 }

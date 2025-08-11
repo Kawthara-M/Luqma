@@ -22,6 +22,7 @@ const SignIn = ({ setCustomer }) => {
   }
 
   return (
+    <div className="wrapper">
     <div className="SignIn-form">
       <form onSubmit={handleSubmit}>
         <div>
@@ -56,7 +57,7 @@ const SignIn = ({ setCustomer }) => {
       <p style={{ marginTop: "1rem", textAlign: "center" }}>
         Don’t have an account? <Link to="/auth/sign-up">Sign Up</Link>
       </p>
-    </div>
+    </div></div>
   )
 }
 

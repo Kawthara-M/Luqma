@@ -32,8 +32,8 @@ function App() {
     if (token) {
       checkToken()
     }
-    console.log("from app customer is:" + customer)
-  }, [])
+
+  }, [customer])
   return (
     <>
       <Navbar handleLogOut={handleLogOut} customer={customer}/>
