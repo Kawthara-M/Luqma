@@ -17,7 +17,7 @@ const Navbar = ({ handleLogOut, customer }) => {
       <nav className="topNav">
         <div className="topNav-left">
           <button className="toggleBtn" onClick={toggleMenu}>
-            ☰ Menu
+            ☰ 
           </button>
         </div>
         <div className="topNav-right">
