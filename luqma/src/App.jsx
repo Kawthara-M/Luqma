@@ -1,16 +1,16 @@
-import './App.css'
-import { useState, useEffect } from 'react'
-import Ckechout from './pages/Checkout'
-import Cart from './pages/Cart'
-import Home from './pages/Home'
-import Profile from './pages/Profile'
-import Navbar from './components/Navbar'
-import SignUp from './pages/SignUp'
-import SignIn from './pages/SignIn'
-import { Route, Routes } from 'react-router-dom'
-import Restaurant from './pages/Restaurant'
-import { CheckSession } from './services/Auth'
-import About from './pages/About'
+import "./App.css"
+import { useState, useEffect } from "react"
+import Ckechout from "./pages/Checkout"
+import Cart from "./pages/Cart"
+import Home from "./pages/Home"
+import Profile from "./pages/Profile"
+import Navbar from "./components/Navbar"
+import SignUp from "./pages/SignUp"
+import SignIn from "./pages/SignIn"
+import { Route, Routes } from "react-router-dom"
+import Restaurant from "./pages/Restaurant"
+import { CheckSession } from "./services/Auth"
+import About from "./pages/About"
 
 function App() {
   const [customer, setCustomer] = useState(null)
@@ -26,10 +26,11 @@ function App() {
   }
 
   useEffect(() => {
-    const token = localStorage.getItem('token')
+    const token = localStorage.getItem("token")
     if (token) {
       checkToken()
     }
+    console.log("from app customer is:" + customer)
   }, [])
   return (
     <>
@@ -37,9 +38,9 @@ function App() {
 
       <Routes>
         <Route path="/Home" element={<Home />} />
-        <Route path="auth/sign-up" element={<SignUp />} />
+        <Route path="/auth/sign-up" element={<SignUp />} />
         <Route
-          path="auth/sign-in"
+          path="/auth/sign-in"
           element={<SignIn setCustomer={setCustomer} />}
         />
         <Route path="/about" element={<About />} />

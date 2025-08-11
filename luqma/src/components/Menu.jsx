@@ -6,6 +6,7 @@ const Menu = ({ meals, customer }) => {
   const [cart, setCart] = useState(null)
 
   useEffect(() => {
+    console.log("customer is " + customer.id)
     const getCart = async () => {
       try {
         const response = await axios.get("http://localhost:3010/order/cart", {
@@ -15,7 +16,7 @@ const Menu = ({ meals, customer }) => {
         })
         if (response.data.length > 0) {
           setCart(response.data[0])
-          console.log(response.data[0])
+          console.log("order id: " + response.data[0])
         } else {
           setCart(null)
         }
@@ -25,7 +26,7 @@ const Menu = ({ meals, customer }) => {
     }
 
     getCart()
-  }, [customer])
+  }, [])
 
   const handleAddToCart = async (mealId) => {
     try {
@@ -35,6 +36,7 @@ const Menu = ({ meals, customer }) => {
       }
 
       if (cart) {
+        console.log("put, cart has an order for this customer")
         const response = await axios.put(
           `http://localhost:3010/order/cart/${cart._id}`,
           { mealId },
@@ -50,7 +52,7 @@ const Menu = ({ meals, customer }) => {
         const response = await axios.post(
           "http://localhost:3010/order/cart",
           {
-            meals: [mealId], 
+            meals: {meal:mealId, quantity:1},
           },
           {
             headers: {
@@ -68,7 +70,11 @@ const Menu = ({ meals, customer }) => {
   return (
     <div className="menu-container">
       {meals.map((meal) => (
-        <Meal key={meal._id} meal={meal} handleAddtoCart={handleAddToCart} />
+        <Meal
+          key={meal._id}
+          meal={meal}
+          handleAddtoCart={() => handleAddToCart(meal._id)}
+        />
       ))}
     </div>
   )

@@ -10,7 +10,6 @@ const Home = () => {
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    console.log('Selected category:', selectedCategory)
 
     const getRestaurants = async () => {
       setLoading(true)
@@ -39,7 +38,7 @@ const Home = () => {
       {loading && <p>Loading restaurants...</p>}
       {error && <p>{error}</p>}
 
-      <RestaurantsList restaurants={restaurants} />
+      <RestaurantsList restaurants={restaurants}  />
     </div>
   )
 }

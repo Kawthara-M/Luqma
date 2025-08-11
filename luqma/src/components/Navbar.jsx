@@ -5,13 +5,13 @@ const Navbar = ({handleLogout}) => {
   return (
     <>
       <nav className="sideNav">
-        <Link to="/">home</Link>
-        <Link to="/resturants">Resturants</Link>
+        <Link to="/Home">home</Link>
+        {/* <Link to="/resturants/">Resturants</Link> */}
         <Link to="/order">Order</Link>
         <Link to="/profile">Profile</Link>
         <Link to="/about">About Us</Link>
         {
-          <Link onClick={handleLogout} to="/sign-in">
+          <Link onClick={handleLogout} to="/auth/sign-in">
             log out
           </Link>
         }

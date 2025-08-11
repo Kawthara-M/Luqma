@@ -6,11 +6,13 @@ import Menu from "../components/Menu"
 // import MenuBar from "./MenuBar"
 
 const Restaurant = ({customer}) => {
+
   const [restaurant, setRestaurant] = useState("")
   const [meals, setMeals] = useState([])
   let { id } = useParams()
 
   useEffect(() => {
+    console.log("customer from restaurant page is:"+customer)
     const getRestaurant = async (req, res) => {
       const response = await axios.get(
         `http://localhost:3010/restaurants/${id}`
@@ -21,6 +23,7 @@ const Restaurant = ({customer}) => {
       )
 
       setMeals(mealsResponse.data)
+      //console.log("restaurant meas:"+ mealsResponse.data)
     }
     getRestaurant()
   }, [])
