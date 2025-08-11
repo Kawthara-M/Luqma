@@ -1,48 +1,36 @@
-import Order from '../components/Order'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import Meal from '../components/Meal'
-
+import MealCart from '../components/MealCart'
 
 const Cart = () => {
-  const [orders, setOrders] = useState([])
-  const [meals, setMeals] = useState([])
-
+  const [MealCarts, setMealCarts] = useState([])
 
   useEffect(() => {
     const onMount = async () => {
-      const response = await axios.get(`http://localhost:3010/cart`)
-      setOrders(response.data)
-      console.log(response.data)
-      
-
-
-    /*   const theMeals = await axios.get(`http://localhost:3010/meals`)
-      setMeals(theMeals.data) */
+      try {
+        const response = await axios.get(`http://localhost:3010/cart`)
+        setMealCarts(response.data)
+      } catch (err) {
+        setError('Failed to add to cart')
+      }
     }
-
-
     onMount()
   }, [])
 
-
-  if (!orders) return <div>loading...</div>
-
-
   return (
-    <>
-      <div>
-        <h2>My Order</h2>
-        {
-        orders &&
-          orders.map((order) => (
-            <Meal key={order.id} order={order} meals={meals} />
-          ))}
-      </div>
-    </>
+    <div>
+      <h2>My Order</h2>
+      {MealCarts &&
+        MealCarts.map((MealCart) => (
+          <MealCart
+            key={meal.id}
+            meal={meal}
+            handleEdit={handleEdit}
+            handleDelete={handleDelete}
+            handleCheckout={handleCheckout}
+          />
+        ))}
+    </div>
   )
 }
 export default Cart
-
-
-
