@@ -1,7 +1,7 @@
-import Search from "./Search"
-import { Link } from "react-router"
+import Search from './Search'
+import { Link } from 'react-router'
 
-const Navbar = ({handleLogout}) => {
+const Navbar = ({ handleLogout }) => {
   return (
     <>
       <nav className="sideNav">

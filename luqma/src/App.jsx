@@ -2,6 +2,7 @@ import './App.css'
 import { useState, useEffect } from 'react'
 import Ckechout from './pages/Checkout'
 import Cart from './pages/Cart'
+import Order from './components/Order'
 import Home from './pages/Home'
 import Profile from './pages/Profile'
 import Navbar from './components/Navbar'
@@ -48,6 +49,8 @@ function App() {
           path="/restaurants/:id"
           element={<Restaurant customer={customer} />}
         />
+
+        <Route path="/order/cart" element={<Order />} />
       </Routes>
     </>
   )
