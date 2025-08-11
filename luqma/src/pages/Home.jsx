@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Category from '../components/Category'
 import RestaurantsList from '../components/RestaurantsList'
-import Restaurant from "../components/Restuatant"
+import Restaurant from '../components/Restuatant'
 import Search from '../components/Search'
 
 const Home = () => {
@@ -67,11 +67,7 @@ const Home = () => {
         {searched ? (
           <section>
             {searchResults.map((restaurant) => (
-              <Restaurant restaurant={restaurant}
-                /* image={restaurant.image}
-                name={restaurant.name}
-                cuisine={restaurant.cuisineType} */
-              />
+              <Restaurant restaurant={restaurant} />
             ))}
           </section>
         ) : (
@@ -79,11 +75,7 @@ const Home = () => {
             <h2>Restaurants</h2>
             <section>
               {restaurants.map((restaurant) => (
-                <Restaurant restaurant={{restaurant}}
-                  /* image={restaurant.image}
-                  name={restaurant.name}
-                  cuisine={restaurant.cuisineType} */
-                />
+                <Restaurant restaurant={{ restaurant }} />
               ))}
             </section>
           </div>
