@@ -27,6 +27,7 @@ const SignUp = () => {
   }
 
   return (
+    <div className="wrapper wrapper-up">
     <div className="signUp-form">
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Your Name</label>
@@ -104,7 +105,7 @@ const SignUp = () => {
       <p style={{ marginTop: "1rem", textAlign: "center" }}>
         Already have an account? <Link to="/auth/sign-in">Sign In</Link>
       </p>
-    </div>
+    </div></div>
   )
 }
 

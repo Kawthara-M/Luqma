@@ -1,6 +1,6 @@
-/* import { cartItems } from './Cart'
-import { useState, useEffect } from 'react'
-import { Navigate } from 'react-router-dom'
+import Cart from "./Cart"
+import { useState, useEffect } from "react"
+import { Navigate } from "react-router-dom"
 
 const Checkout = () => {
   const [order, setOrder] = useState([])
@@ -8,17 +8,17 @@ const Checkout = () => {
   let navigate = Navigate()
 
   useEffect(() => {
-    setOrder(cartItems)
+    setOrder(Cart)
   }, [])
 
   const handleSubmitOrder = async (e) => {
     e.preventDefault()
-    navigate('/order')
+    navigate("/orders")
   }
 
   const handleSubmitCancleOrder = async (e) => {
     e.preventDefault()
-    navigate('/resturant')
+    navigate("/resturant")
   }
 
   return (
@@ -57,4 +57,3 @@ const Checkout = () => {
 }
 
 export default Checkout
- */

@@ -13,10 +13,17 @@ const Cart = () => {
     const onMount = async () => {
       const response = await axios.get(`http://localhost:3010/cart`)
       setOrders(response.data)
+      console.log(response.data)
+      
 
 
+<<<<<<< HEAD
       // const theMeals = await axios.get(`http://localhost:3010/meals`)
       // setMeals(theMeals.data)
+=======
+    /*   const theMeals = await axios.get(`http://localhost:3010/meals`)
+      setMeals(theMeals.data) */
+>>>>>>> 2074f44c9f1a907697401a097e48cd868839690c
     }
 
 
@@ -31,7 +38,8 @@ const Cart = () => {
     <>
       <div>
         <h2>My Order</h2>
-        {orders &&
+        {
+        orders &&
           orders.map((order) => (
             <Meal key={order.id} order={order} meals={meals} />
           ))}

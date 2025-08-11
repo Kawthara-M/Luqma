@@ -1,10 +1,23 @@
+import { useState, useEffect } from "react"
+
 const Meal = ({ meal, handleAddtoCart }) => {
+  const [quantity, setQuantity] = useState(1)
+
+
+  const updateQuantity = (e) => {
+  const newValue = parseInt(e.target.value)
+  setQuantity(newValue)
+}
+
   return (
     <div className="meal-card">
       <h4>{meal.name}</h4>
       <p>{meal.description}</p>
       <p className="meal-price">${meal.price.toFixed(2)}</p>
-      <button onClick={() => handleAddtoCart(meal._id)}>Add to Cart</button>
+      <input type="number" name="quantity" value={quantity} onChange={updateQuantity}></input>
+      <button onClick={() => handleAddtoCart(meal._id, quantity)}>
+        Add to Cart
+      </button>
     </div>
   )
 }

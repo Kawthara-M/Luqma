@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import Restaurant from './Restuatant'
 
 const RestaurantsList = ({ restaurants }) => {
-  if (!restaurants) return <p>No resturants</p>
+  if (!restaurants) return <p>No restaurants</p>
 
   return (
     <div className="restaurant-list">

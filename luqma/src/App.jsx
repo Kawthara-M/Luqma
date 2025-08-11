@@ -1,7 +1,7 @@
 import './App.css'
 import { useState, useEffect } from 'react'
-// import Ckechout from './pages/Checkout'
-// import Cart from './pages/Cart'
+import Ckechout from './pages/Checkout'
+import Cart from './pages/Cart'
 import Order from './components/Order'
 import Home from './pages/Home'
 import Profile from './pages/Profile'
@@ -28,20 +28,21 @@ function App() {
   }
 
   useEffect(() => {
-    const token = localStorage.getItem('token')
+    const token = localStorage.getItem("token")
     if (token) {
       checkToken()
     }
-  }, [])
+
+  }, [customer])
   return (
     <>
-      <Navbar handleLogOut={handleLogOut} />
+      <Navbar handleLogOut={handleLogOut} customer={customer}/>
 
       <Routes>
         <Route path="/Home" element={<Home />} />
-        <Route path="auth/sign-up" element={<SignUp />} />
+        <Route path="/auth/sign-up" element={<SignUp />} />
         <Route
-          path="auth/sign-in"
+          path="/auth/sign-in"
           element={<SignIn setCustomer={setCustomer} />}
         />
         <Route path="/about" element={<About />} />
@@ -50,8 +51,15 @@ function App() {
           path="/restaurants/:id"
           element={<Restaurant customer={customer} />}
         />
+<<<<<<< HEAD
         <Route path="/"/>
         <Route path="/order" element={<OrderPage />} />
+=======
+
+        <Route path="/orders" element={<OrderPage />} />
+        <Route path="/checkout" element={<Ckechout />} />
+        <Route path="/cart" element={<Cart />} />
+>>>>>>> 2074f44c9f1a907697401a097e48cd868839690c
       </Routes>
     </>
   )

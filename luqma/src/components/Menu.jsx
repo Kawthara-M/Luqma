@@ -8,14 +8,13 @@ const Menu = ({ meals, customer }) => {
   useEffect(() => {
     const getCart = async () => {
       try {
-        const response = await axios.get("http://localhost:3010/order/cart", {
+        const response = await axios.get("http://localhost:3010/cart", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         })
         if (response.data.length > 0) {
           setCart(response.data[0])
-          console.log(response.data[0])
         } else {
           setCart(null)
         }
@@ -25,9 +24,9 @@ const Menu = ({ meals, customer }) => {
     }
 
     getCart()
-  }, [customer])
+  }, [])
 
-  const handleAddToCart = async (mealId) => {
+  const handleAddToCart = async (mealId, mealQuantity) => {
     try {
       if (!customer) {
         alert("You must be signed in to add to cart.")
@@ -35,9 +34,10 @@ const Menu = ({ meals, customer }) => {
       }
 
       if (cart) {
+
         const response = await axios.put(
-          `http://localhost:3010/order/cart/${cart._id}`,
-          { mealId },
+          `http://localhost:3010/cart/${cart._id}`,
+          { mealId, quantity: mealQuantity },
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -48,9 +48,9 @@ const Menu = ({ meals, customer }) => {
         setCart(response.data)
       } else {
         const response = await axios.post(
-          "http://localhost:3010/order/cart",
+          "http://localhost:3010/cart",
           {
-            meals: [mealId], 
+            meals: {meal:mealId, quantity:parseInt(mealQuantity)},
           },
           {
             headers: {
@@ -68,7 +68,11 @@ const Menu = ({ meals, customer }) => {
   return (
     <div className="menu-container">
       {meals.map((meal) => (
-        <Meal key={meal._id} meal={meal} handleAddtoCart={handleAddToCart} />
+        <Meal
+          key={meal._id}
+          meal={meal}
+          handleAddtoCart={(id,qty) => handleAddToCart(meal._id, qty)}
+        />
       ))}
     </div>
   )
