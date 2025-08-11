@@ -1,4 +1,4 @@
-import { cartItems } from './Cart'
+/* import { cartItems } from './Cart'
 import { useState, useEffect } from 'react'
 import { Navigate } from 'react-router-dom'
 
@@ -57,3 +57,4 @@ const Checkout = () => {
 }
 
 export default Checkout
+ */
