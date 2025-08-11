@@ -51,7 +51,7 @@ function App() {
           element={<Restaurant customer={customer} />}
         />
         <Route path="/"/>
-        <Route path="/order/cart" element={<OrderPage />} />
+        <Route path="/order" element={<OrderPage />} />
       </Routes>
     </>
   )

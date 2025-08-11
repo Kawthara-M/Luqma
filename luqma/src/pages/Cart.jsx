@@ -11,12 +11,12 @@ const Cart = () => {
 
   useEffect(() => {
     const onMount = async () => {
-      const response = await axios.get(`http://localhost:3010/orders`)
+      const response = await axios.get(`http://localhost:3010/cart`)
       setOrders(response.data)
 
 
-      const theMeals = await axios.get(`http://localhost:3010/meals`)
-      setMeals(theMeals.data)
+      // const theMeals = await axios.get(`http://localhost:3010/meals`)
+      // setMeals(theMeals.data)
     }
 
 
