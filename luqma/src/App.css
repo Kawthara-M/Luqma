@@ -12,7 +12,7 @@ body {
   padding: 0;
   background: linear-gradient(135deg, #f8fdf8 0%, #fff5f0 100%);
 }
-.restaurant-list {
+/* .restaurant-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
@@ -42,19 +42,19 @@ body {
 .restaurant h3,
 .restaurant h4 {
   margin: 0.75rem 1rem;
-}
+} */
 
-.restaurant-page {
+/* .restaurant-page {
   max-width: 960px;
   margin: 0 auto;
   padding: 2rem 1rem;
-}
+} */
 
-.restaurant-name {
+/* .restaurant-name {
   font-size: 2rem;
   margin-bottom: 1.5rem;
   color: #333;
-}
+} */
 
 .menu-container {
   display: flex;
@@ -94,7 +94,7 @@ body {
   padding: 0 1rem;
   width: 50%;
 }
-h1{
+h1 {
   margin: 10rem;
 }
 
