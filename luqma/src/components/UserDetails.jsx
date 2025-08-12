@@ -76,6 +76,10 @@ const UserDetails = ({ customerId }) => {
 
   const handleDelete = async (e) => {
     e.preventDefault()
+    const confirmDelete = window.confirm(
+      'Are you sure you want to delete your account?'
+    )
+    if (!confirmDelete) return
     try {
       const res = await axios.delete(
         `http://localhost:3010/auth/${customerId}`,
