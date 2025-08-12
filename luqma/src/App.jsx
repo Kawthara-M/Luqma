@@ -43,7 +43,7 @@ function App() {
       />
       <main className="page-container">
         <Routes>
-          <Route path="/Home" element={<Home />} />
+          <Route path="/*" element={<Home />} />
           <Route path="/auth/sign-up" element={<SignUp />} />
           <Route
             path="/auth/sign-in"
