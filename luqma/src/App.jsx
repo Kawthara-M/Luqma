@@ -32,7 +32,7 @@ function App() {
     if (token) {
       checkToken()
     }
-  }, [customer])
+  },[])
 
   return (
     <div className="App">

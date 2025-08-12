@@ -23,7 +23,6 @@ const Restaurant = ({customer}) => {
       )
 
       setMeals(mealsResponse.data)
-      //console.log("restaurant meas:"+ mealsResponse.data)
     }
     getRestaurant()
   }, [])

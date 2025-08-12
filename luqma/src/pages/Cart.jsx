@@ -8,10 +8,14 @@ const Cart = () => {
   useEffect(() => {
     const onMount = async () => {
       try {
-        const response = await axios.get(`http://localhost:3010/cart`)
+        const response = await axios.get(`http://localhost:3010/cart`,{
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          })
         setMealCarts(response.data)
       } catch (err) {
-        setError('Failed to add to cart')
+       /*  setError('Failed to add to cart') */
       }
     }
     onMount()
@@ -24,7 +28,7 @@ const Cart = () => {
         MealCarts.map((MealCart) => (
           <MealCart
             key={meal.id}
-            meal={meal}
+            meal={MealCart}
             handleEdit={handleEdit}
             handleDelete={handleDelete}
             handleCheckout={handleCheckout}
