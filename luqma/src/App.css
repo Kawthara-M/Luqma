@@ -1,7 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
 body {
   margin: 0;
   padding: 0;
-  background-color: #fff;
+  background: linear-gradient(135deg, #f8fdf8 0%, #fff5f0 100%);
 }
 .restaurant-list {
   display: grid;
@@ -82,12 +91,12 @@ body {
   align-items: center;
   height: calc(100vh - 4rem); /* 4 because the top navbar height is 4 */
   margin: 0 auto;
-  padding: 0 1rem; 
-  width:50%;
+  padding: 0 1rem;
+  width: 50%;
 }
 
 .wrapper-up {
-margin-top: 3rem;
+  margin-top: 3rem;
 }
 
 .SignIn-form,
@@ -228,7 +237,7 @@ margin-top: 3rem;
 }
 
 .topNav img {
-  height:1.5rem;
+  height: 1.5rem;
 }
 
 /* From Uiverse.io by PriyanshuGupta28 */ 

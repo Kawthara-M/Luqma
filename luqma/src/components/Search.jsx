@@ -1,17 +1,20 @@
+import '../../public/styleSheets/search.css'
+
 const Search = ({ onSubmit, onChange, value }) => {
   return (
-    <>
-      <form onSubmit={onSubmit}>
-        <input
-          type="text"
-          name="search"
-          value={value}
-          placeholder="Search Restaurants"
-          onChange={onChange}
-        ></input>
-        <button type="submit">Submit</button>
-      </form>
-    </>
+    <form onSubmit={onSubmit} className="form">
+      <input
+        type="text"
+        name="search"
+        value={value}
+        placeholder="Search for a restaurant ...."
+        onChange={onChange}
+        className="input"
+      />
+      <button type="submit" className="button">
+        🔍
+      </button>
+    </form>
   )
 }
 
