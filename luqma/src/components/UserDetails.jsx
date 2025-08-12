@@ -67,7 +67,14 @@ const UserDetails = ({ customerId }) => {
       })
   }
 
-  if (loading) return <p>Loading...</p>
+  if (loading) return (
+        <div className="loader">
+          <div className="circle"></div>
+          <div className="circle"></div>
+          <div className="circle"></div>
+          <div className="circle"></div>
+        </div>
+      )
   if (error) return <p>Error: {error}</p>
 
   return (

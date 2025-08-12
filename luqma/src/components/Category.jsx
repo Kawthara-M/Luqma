@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios'
+import { useEffect, useState } from "react"
+import axios from "axios"
 
 const Category = ({ onSelectCategory }) => {
   const [cuisines, setCuisines] = useState([])
@@ -11,12 +11,12 @@ const Category = ({ onSelectCategory }) => {
       setLoading(true)
       try {
         const response = await axios.get(
-          'http://localhost:3010/restaurants/cuisines'
+          "http://localhost:3010/restaurants/cuisines"
         )
         setCuisines(response.data)
         setError(null)
       } catch (err) {
-        setError('Failed to load cuisines')
+        setError("Failed to load cuisines")
       } finally {
         setLoading(false)
       }
@@ -27,7 +27,14 @@ const Category = ({ onSelectCategory }) => {
   return (
     <div>
       <h2>Categories</h2>
-      {loading && <p>Loading categories...</p>}
+      {loading && (
+        <div className="loader">
+          <div className="circle"></div>
+          <div className="circle"></div>
+          <div className="circle"></div>
+          <div className="circle"></div>
+        </div>
+      )}
       {error && <p>{error}</p>}
       <div>
         {cuisines.map((cuisine) => (
