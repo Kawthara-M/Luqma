@@ -7,7 +7,6 @@ export default function OrdersPage() {
   const token = localStorage.getItem('token')
 
   useEffect(() => {
-    // جلب الطلب الحالي (عربة التسوق المفتوحة)
     axios
       .get('/cart', {
         headers: { Authorization: `Bearer ${token}` }
@@ -22,7 +21,6 @@ export default function OrdersPage() {
       })
       .catch((err) => console.error(err))
 
-    // جلب الطلبات السابقة (المكتملة)
     axios
       .get('/orders', {
         headers: { Authorization: `Bearer ${token}` }
