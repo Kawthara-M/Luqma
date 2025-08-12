@@ -65,8 +65,8 @@ const SignIn = ({ setCustomer }) => {
             <input
               onChange={(e) => {
                 handleChange(e)
-                validate(e.target.value)
               }}
+              onBlur={(e) => validatePassword(e.target.value)}
               type="password"
               id="password"
               name="passwordDigest"
