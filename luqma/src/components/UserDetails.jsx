@@ -4,6 +4,8 @@ import Customer from '../services/api'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
+import '../../public/styleSheets/userDetails.css'
+
 const UserDetails = ({ customerId }) => {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -99,7 +101,7 @@ const UserDetails = ({ customerId }) => {
   if (error) return <p>Error: {error}</p>
 
   return (
-    <div>
+    <div className="user-details-container">
       {editing ? (
         <form
           onSubmit={(e) => {
@@ -107,69 +109,102 @@ const UserDetails = ({ customerId }) => {
             handleSave()
           }}
         >
-          <label>
-            Name:{' '}
-            <input value={name} onChange={(e) => setName(e.target.value)} />
-          </label>
-          <br />
-          <label>
-            Email:{' '}
-            <input value={email} onChange={(e) => setEmail(e.target.value)} />
-          </label>
-          <br />
-          <label>
-            Phone:{' '}
-            <input value={phone} onChange={(e) => setPhone(e.target.value)} />
-          </label>
-          <br />
-          <button type="submit">Save</button>
-          <button type="button" onClick={() => setEditing(false)}>
-            Cancel
-          </button>
+          <h2>Edit User Details</h2>
+
+          <div className="name">
+            <label className="name-lable">Name:</label>
+
+            <input
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="name-input"
+            />
+          </div>
+          <div className="email">
+            <label className="email-lable">Email: </label>
+            <input
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="email-lable"
+            />
+          </div>
+          <div className="phone">
+            <label className="phone-lable">Phone:</label>
+
+            <input
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              className="phonr-input"
+            />
+          </div>
+          <div className="buttons">
+            <button type="submit">Save</button>
+            <button type="button" onClick={() => setEditing(false)}>
+              Cancel
+            </button>
+          </div>
         </form>
       ) : (
         <>
           <h2>User Details</h2>
-          <p>Name: {user.name}</p>
-          <p>Email: {user.email}</p>
-          <p>Phone Number: {user.phone}</p>
-          <button onClick={() => setEditing(true)}>Edit</button>
+          <p className="name">
+            Name: <span>{user.name}</span>
+          </p>
+          <br />
+          <p className="email">
+            Email: <span>{user.email}</span>
+          </p>
+          <br />
+
+          <p className="phone">
+            Phone Number: <span>{user.phone}</span>
+          </p>
+          <br />
+
+          <button onClick={() => setEditing(true)} className="edit-btn">
+            Edit
+          </button>
 
           <br />
 
-          <button onClick={() => setShowPasswordForm(!showPasswordForm)}>
+          <button
+            onClick={() => setShowPasswordForm(!showPasswordForm)}
+            className="changePass-btn"
+          >
             {showPasswordForm ? 'Cancel Password Change' : 'Change Password'}
           </button>
 
           {showPasswordForm && (
             <form onSubmit={handlePasswordUpdate}>
-              <label>
-                Old Password:{' '}
-                <input
-                  type="password"
-                  value={oldPassword}
-                  onChange={(e) => setOldPassword(e.target.value)}
-                  required
-                />
-              </label>
+              <label>Old Password:</label>
+
+              <input
+                type="password"
+                value={oldPassword}
+                onChange={(e) => setOldPassword(e.target.value)}
+                required
+              />
               <br />
-              <label>
-                New Password:{' '}
-                <input
-                  type="password"
-                  value={newPassword}
-                  onChange={(e) => setNewPassword(e.target.value)}
-                  required
-                />
-              </label>
+              <label>New Password:</label>
+
+              <input
+                type="password"
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+                required
+              />
               <br />
-              <button type="submit">Update Password</button>
+              <button type="submit" className="updatePass-btn">
+                Update Password
+              </button>
               {passwordMessage && <p>{passwordMessage}</p>}
             </form>
           )}
           <div>
             <form onSubmit={handleDelete}>
-              <button type="submit">Delete Account</button>
+              <button type="submit" className="delete-btn">
+                Delete Account
+              </button>
             </form>
           </div>
         </>
