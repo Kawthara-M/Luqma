@@ -50,7 +50,10 @@ function App() {
             element={<SignIn setCustomer={setCustomer} />}
           />
           <Route path="/about" element={<About />} />
-          <Route path="/profile/:id" element={<Profile />} />
+          <Route
+            path="/profile/:id"
+            element={<Profile setCustomer={setCustomer} />}
+          />
           <Route
             path="/restaurants/:id"
             element={<Restaurant customer={customer} />}

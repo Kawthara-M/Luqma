@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-export default function OrdersPage() {
+const OrdersPage = () => {
   const [cartOrders, setCartOrders] = useState([])
   const [pastOrders, setPastOrders] = useState([])
   const token = localStorage.getItem('token')
@@ -71,3 +71,5 @@ export default function OrdersPage() {
     </div>
   )
 }
+
+export default OrdersPage
