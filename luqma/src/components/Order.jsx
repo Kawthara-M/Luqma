@@ -38,11 +38,11 @@ export default function OrdersPage() {
       {cartOrders.length > 0 ? (
         cartOrders.map((order) => (
           <div key={order._id} className="order-card">
-            <h3>{order.restaurant?.name || 'Unnamed Restaurant'}</h3>
-            <p>Status: {order.status}</p>
-            <p>Delivery Man: {order.deliveryMan?.name || 'Not assigned'}</p>
-            <p>Phone: {order.deliveryMan?.phone || '-'}</p>
-            <p>Email: {order.deliveryMan?.email || '-'}</p>
+            <h3>{order.restaurant?.name}</h3>
+            {/* <p>Status: {order.status}</p> */}
+            <p>Delivery Man: {order.deliveryMan?.name}</p>
+            <p>Phone: {order.deliveryMan?.phone}</p>
+            <p>Email: {order.deliveryMan?.email}</p>
           </div>
         ))
       ) : (
@@ -53,7 +53,7 @@ export default function OrdersPage() {
       {pastOrders.length > 0 ? (
         pastOrders.map((order) => (
           <div key={order._id} className="past-order-card">
-            <h3>{order.restaurant?.name || 'Unnamed Restaurant'}</h3>
+            <h3>{order.restaurant?.name}</h3>
             <p>Status: {order.status}</p>
             <div>
               {order.meals?.map((m) => (
@@ -62,7 +62,7 @@ export default function OrdersPage() {
                 </p>
               ))}
             </div>
-            <p>Delivery Man: {order.deliveryMan?.name || 'Not assigned'}</p>
+            <p>Delivery Man: {order.deliveryMan?.name}</p>
           </div>
         ))
       ) : (
