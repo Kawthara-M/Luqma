@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react'
 import Customer from '../services/api'
 
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+
 const UserDetails = ({ customerId }) => {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -15,6 +18,10 @@ const UserDetails = ({ customerId }) => {
   const [oldPassword, setOldPassword] = useState('')
   const [newPassword, setNewPassword] = useState('')
   const [passwordMessage, setPasswordMessage] = useState('')
+
+  const token = localStorage.getItem('token')
+
+  let navigate = useNavigate()
 
   useEffect(() => {
     console.log('customer id' + customerId)
@@ -67,14 +74,29 @@ const UserDetails = ({ customerId }) => {
       })
   }
 
-  if (loading) return (
-        <div className="loader">
-          <div className="circle"></div>
-          <div className="circle"></div>
-          <div className="circle"></div>
-          <div className="circle"></div>
-        </div>
+
+  const handleDelete = async (e) => {
+    e.preventDefault()
+    const confirmDelete = window.confirm(
+      'Are you sure you want to delete your account?'
+    )
+    if (!confirmDelete) return
+    try {
+      const res = await axios.delete(
+        `http://localhost:3010/auth/${customerId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        }
       )
+      localStorage.removeItem('token')
+      navigate('/home')
+    } catch (err) {
+      alert('Failed to delete user')
+    }
+  }
+  if (loading) return <p>Loading...</p>
   if (error) return <p>Error: {error}</p>
 
   return (
@@ -146,6 +168,11 @@ const UserDetails = ({ customerId }) => {
               {passwordMessage && <p>{passwordMessage}</p>}
             </form>
           )}
+          <div>
+            <form onSubmit={handleDelete}>
+              <button type="submit">Delete Account</button>
+            </form>
+          </div>
         </>
       )}
     </div>

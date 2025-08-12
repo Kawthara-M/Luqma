@@ -8,6 +8,7 @@ const SignIn = ({ setCustomer }) => {
   const initialState = { email: "", passwordDigest: "" }
   const [errorMessage, setErrorMessage] = useState("")
 
+
   const [formValues, setFormValues] = useState(initialState)
 
   const handleChange = (e) => {
@@ -38,7 +39,7 @@ const SignIn = ({ setCustomer }) => {
       setCustomer(payload)
     }
 
-    navigate("/Home")
+    navigate('/Home')
   }
 
   return (
@@ -96,6 +97,7 @@ const SignIn = ({ setCustomer }) => {
           {errorMessage}
         </span>
       )}
+
     </div>
   )
 }
