@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom"
-import { useState } from "react"
-import cartIcon from '../assets/cart.png';
+import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import cartIcon from '../assets/cart.png'
+import '../../public/styleSheets/navBar.css'
 
 const Navbar = ({ handleLogOut, customer }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -17,17 +18,21 @@ const Navbar = ({ handleLogOut, customer }) => {
       <nav className="topNav">
         <div className="topNav-left">
           <button className="toggleBtn" onClick={toggleMenu}>
-            ☰ 
+            ☰
           </button>
+          <Link to="/Home" className="brand-logo">
+            🍽️ Luqma
+          </Link>
         </div>
+
         <div className="topNav-right">
           <Link to="/cart" onClick={closeMenu}>
-            <img src={cartIcon} alt="cart icon"></img>
+            <img src={cartIcon} alt="cart icon" className="cart-icon" />
           </Link>
         </div>
       </nav>
 
-      <nav className={`sideNav ${isOpen ? "open" : ""}`}>
+      <nav className={`sideNav ${isOpen ? 'open' : ''}`}>
         <Link to="/Home" onClick={closeMenu}>
           Home
         </Link>
