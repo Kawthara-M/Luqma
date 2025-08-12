@@ -33,7 +33,6 @@ const SignIn = ({ setCustomer }) => {
     if (errorMessage) {
       return
     } else {
-      console.log(formValues)
       const payload = await SignInCustomer(formValues)
       setFormValues(initialState)
       setCustomer(payload)
@@ -66,7 +65,7 @@ const SignIn = ({ setCustomer }) => {
               onChange={(e) => {
                 handleChange(e)
               }}
-              onBlur={(e) => validatePassword(e.target.value)}
+              onBlur={(e) => validate(e.target.value)}
               type="password"
               id="password"
               name="passwordDigest"
