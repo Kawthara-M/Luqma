@@ -1,11 +1,12 @@
 import axios from "axios"
-import { useEffect, useState } from "react"
+import { use, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import MealCart from "../components/MealCart"
 
 const Cart = () => {
-    let navigate = useNavigate()
+  let navigate = useNavigate()
   const [mealCarts, setMealCarts] = useState([])
+  const [load, setLoad]=useState(false)
 
   useEffect(() => {
     const onMount = async () => {
@@ -21,11 +22,10 @@ const Cart = () => {
       }
     }
     onMount()
-  }, [])
+  }, [load])
 
   const handleEdit = async (orderId, mealId, mealQuantity) => {
     try {
-      mealId = mealId._id
       const response = await axios.put(
         `http://localhost:3010/cart/${orderId}`,
         { mealId, quantity: mealQuantity },
@@ -35,7 +35,8 @@ const Cart = () => {
           },
         }
       )
-      setMealCarts(response.data)
+      setLoad(!load)
+   /*    setMealCarts(Array.isArray(response.data) ? response.data : [response.data]) */
     } catch (err) {
       console.log("Failed to edit meal" + err)
     }
@@ -59,7 +60,8 @@ const Cart = () => {
   }
 
   const handleCheckout = () => {
-    navigate('/Checkout')
+    console.log(mealCarts)
+    navigate("/Checkout", {state: {mealCarts}})
   }
 
   return (
@@ -71,9 +73,13 @@ const Cart = () => {
           mealCart={mealCart}
           handleEdit={handleEdit}
           handleDelete={handleDelete}
-          handleCheckout={handleCheckout}
+          // handleCheckout={handleCheckout}
         />
       ))}
+      <h2>Total Price: {mealCarts.length>0 ? mealCarts[0].totalPrice: 0} BD</h2>
+       <button onClick={() => handleCheckout()}>
+        Checkout
+      </button>
     </div>
   )
 }

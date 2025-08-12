@@ -40,7 +40,7 @@ const Meal = ({ mealCart, handleEdit, handleDelete, handleCheckout }) => {
                 onClick={() =>
                   handleEdit(
                     mealCart._id,
-                    oneMeal.meal,
+                    oneMeal.meal._id,
                     mealsQuantity[oneMeal._id]
                   )
                 }
@@ -54,9 +54,7 @@ const Meal = ({ mealCart, handleEdit, handleDelete, handleCheckout }) => {
           ))
         : null}
 
-      <button onClick={() => handleCheckout()}>
-        Checkout
-      </button>
+     
     </div>
   )
 }
