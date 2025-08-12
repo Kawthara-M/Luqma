@@ -16,7 +16,6 @@ const Cart = () => {
         setMealCarts(response.data)
         //  console.log("mealCarts:"+response.data)
       } catch (err) {
-       /*  setError('Failed to add to cart') */
         console.log('Failed to add to cart')
       }
     }
