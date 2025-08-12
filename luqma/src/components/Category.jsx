@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
+import '../../public/styleSheets/category.css'
+
 const Category = ({ onSelectCategory }) => {
   const [cuisines, setCuisines] = useState([])
   const [loading, setLoading] = useState(false)
@@ -25,21 +27,28 @@ const Category = ({ onSelectCategory }) => {
   }, [])
 
   return (
-    <div>
-      {loading && <p>Loading categories...</p>}
-      {error && <p>{error}</p>}
-      <div>
+    <div className="category-container">
+      {loading && <p className="category-loading">Loading categories...</p>}
+      {error && <p className="category-error">{error}</p>}
+
+      <div className="category-buttons">
         {cuisines.map((cuisine) => (
-          <button key={cuisine} onClick={() => onSelectCategory(cuisine)}>
+          <button
+            key={cuisine}
+            onClick={() => onSelectCategory(cuisine)}
+            className="category-btn"
+          >
             {cuisine}
           </button>
         ))}
-        <button onClick={() => onSelectCategory(null)}>
-          show all restaurants
+        <button
+          onClick={() => onSelectCategory(null)}
+          className="category-btn show-all-btn"
+        >
+          Show All Restaurants
         </button>
       </div>
     </div>
   )
 }
-
 export default Category
