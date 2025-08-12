@@ -1,27 +1,40 @@
 import { useState } from 'react'
 
-const Meal = ({ meal, handleEdit, handleDelete, handleCheckout }) => {
+const Meal = ({ mealCart, handleEdit, handleDelete, handleCheckout }) => {
   const [quantity, setQuantity] = useState(1)
-
   const updateQuantity = (e) => {
     const newValue = parseInt(e.target.value)
     setQuantity(newValue)
   }
-
   return (
     <div>
-      <h4>{meal.name}</h4>
-      <p>{meal.description}</p>
-      <p>${meal.price.toFixed(2)}</p>
-      <input
-        type="number"
-        name="quantity"
-        value={quantity}
-        onChange={updateQuantity}
-      ></input>
-      <button onClick={() => handleEdit(meal._id, quantity)}>Edit</button>
-      <button onClick={() => handleDelete(meal._id, quantity)}>Delete</button>
-      <button onClick={() => handleCheckout(meal._id, quantity)}>Checkout</button>
+      {mealCart
+        ? mealCart.meals.map((oneMeal) => (
+            <>
+              <h2>
+                {oneMeal.meal.name}
+                {oneMeal.quantity}
+                {oneMeal.meal.price}
+              </h2>
+              <input
+                type="number"
+                name="quantity"
+                value={quantity}
+                onChange={updateQuantity}
+              ></input>
+              <button onClick={() => handleEdit(mealCart._id, quantity)}>
+                Edit
+              </button>
+            </>
+          ))
+        : null}
+
+      <button onClick={() => handleDelete(mealCart._id, quantity)}>
+        Delete
+      </button>
+      <button onClick={() => handleCheckout(mealCart._id, quantity)}>
+        Checkout
+      </button>
     </div>
   )
 }

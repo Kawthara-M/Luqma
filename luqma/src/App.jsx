@@ -28,35 +28,39 @@ function App() {
   }
 
   useEffect(() => {
-    const token = localStorage.getItem("token")
+    const token = localStorage.getItem('token')
     if (token) {
       checkToken()
     }
+  }, [])
 
-  }, [customer])
   return (
-    <>
-      <Navbar handleLogOut={handleLogOut} customer={customer}/>
-
-      <Routes>
-        <Route path="/Home" element={<Home />} />
-        <Route path="/auth/sign-up" element={<SignUp />} />
-        <Route
-          path="/auth/sign-in"
-          element={<SignIn setCustomer={setCustomer} />}
-        />
-        <Route path="/about" element={<About />} />
-        <Route path="/profile/:id" element={<Profile />} />
-        <Route
-          path="/restaurants/:id"
-          element={<Restaurant customer={customer} />}
-        />
-
-        <Route path="/orders" element={<OrderPage />} />
-        <Route path="/checkout" element={<Ckechout />} />
-        <Route path="/cart" element={<Cart />} />
-      </Routes>
-    </>
+    <div className="App">
+      <Navbar
+        handleLogOut={handleLogOut}
+        customer={customer}
+        className="navbar"
+      />
+      <main className="page-container">
+        <Routes>
+          <Route path="/*" element={<Home />} />
+          <Route path="/auth/sign-up" element={<SignUp />} />
+          <Route
+            path="/auth/sign-in"
+            element={<SignIn setCustomer={setCustomer} />}
+          />
+          <Route path="/about" element={<About />} />
+          <Route path="/profile/:id" element={<Profile />} />
+          <Route
+            path="/restaurants/:id"
+            element={<Restaurant customer={customer} />}
+          />
+          <Route path="/orders" element={<OrderPage />} />
+          <Route path="/checkout" element={<Ckechout />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+      </main>
+    </div>
   )
 }
 

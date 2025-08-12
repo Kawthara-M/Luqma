@@ -8,9 +8,13 @@ const Cart = () => {
   useEffect(() => {
     const onMount = async () => {
       try {
-        const response = await axios.get(`http://localhost:3010/cart`)
-        console.log(response.data)
+        const response = await axios.get(`http://localhost:3010/cart`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+          }
+        })
         setMealCarts(response.data)
+        //  console.log("mealCarts:"+response.data)
       } catch (err) {
         console.log('Failed to add to cart')
       }
@@ -18,17 +22,21 @@ const Cart = () => {
     onMount()
   }, [])
 
-  const handleEdit = async () => {
-      try {
-        const response = await axios.get(`http://localhost:3010/orders/:id`, {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`
+  const handleEdit = async (mealId, mealQuantity) => {
+    try {
+   const response = await axios.put(
+          `http://localhost:3010/cart/${mealId}`,
+          { mealId, quantity: mealQuantity },
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
           }
-        })
-        setMealCarts(response.data)
-      } catch (err) {
-        console.log('Failed to edit meal')
-      }
+        )
+      setMealCarts(response.data)
+    } catch (err) {
+      console.log('Failed to edit meal'+err)
+    }
   }
 
   const handleDelete = () => {
@@ -42,16 +50,15 @@ const Cart = () => {
   return (
     <div>
       <h2>My Order</h2>
-      {mealCarts &&
-        mealCarts.map((mealCart) => (
-          <MealCart
-            key={mealCart.id}
-            meal={mealCart}
-            handleEdit={handleEdit}
-            handleDelete={handleDelete}
-            handleCheckout={handleCheckout}
-          />
-        ))}
+      {mealCarts.map((mealCart) => (
+        <MealCart
+          key={mealCart.id}
+          mealCart={mealCart}
+          handleEdit={handleEdit}
+          handleDelete={handleDelete}
+          handleCheckout={handleCheckout}
+        />
+      ))}
     </div>
   )
 }
