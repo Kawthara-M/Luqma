@@ -33,7 +33,6 @@ const SignIn = ({ setCustomer }) => {
     if (errorMessage) {
       return
     } else {
-      console.log(formValues)
       const payload = await SignInCustomer(formValues)
       setFormValues(initialState)
       setCustomer(payload)

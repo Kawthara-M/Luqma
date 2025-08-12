@@ -1,12 +1,10 @@
 import Cart from "./Cart"
 import { useState, useEffect } from "react"
-import { Navigate } from "react-router-dom"
-
+import { useNavigate } from "react-router-dom"
 const Checkout = () => {
   const [order, setOrder] = useState([])
 
-  let navigate = Navigate()
-
+const navigate = useNavigate()
   useEffect(() => {
     setOrder(Cart)
   }, [])

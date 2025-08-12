@@ -44,7 +44,6 @@ const SignUp = () => {
       console.log(formValues)
       const payload = await SignUpCustomer(formValues)
       setFormValues(initialState)
-      setCustomer(payload)
     }
 
     navigate("/sign-in")

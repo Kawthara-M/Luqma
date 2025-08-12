@@ -1,8 +1,10 @@
-import axios from 'axios'
-import { useEffect, useState } from 'react'
-import MealCart from '../components/MealCart'
+import axios from "axios"
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
+import MealCart from "../components/MealCart"
 
 const Cart = () => {
+    let navigate = useNavigate()
   const [mealCarts, setMealCarts] = useState([])
 
   useEffect(() => {
@@ -10,47 +12,59 @@ const Cart = () => {
       try {
         const response = await axios.get(`http://localhost:3010/cart`, {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`
-          }
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
         })
         setMealCarts(response.data)
-        //  console.log("mealCarts:"+response.data)
       } catch (err) {
-        console.log('Failed to add to cart')
+        console.log("Failed to add to cart")
       }
     }
     onMount()
   }, [])
 
-  const handleEdit = async (mealId, mealQuantity) => {
+  const handleEdit = async (orderId, mealId, mealQuantity) => {
     try {
-   const response = await axios.put(
-          `http://localhost:3010/cart/${mealId}`,
-          { mealId, quantity: mealQuantity },
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-          }
-        )
+      mealId = mealId._id
+      const response = await axios.put(
+        `http://localhost:3010/cart/${orderId}`,
+        { mealId, quantity: mealQuantity },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      )
       setMealCarts(response.data)
     } catch (err) {
-      console.log('Failed to edit meal'+err)
+      console.log("Failed to edit meal" + err)
     }
   }
 
-  const handleDelete = () => {
-    return
+  const handleDelete = async (orderId, mealId) => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:3010/cart/${orderId}/meal/${mealId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      )
+
+      setMealCarts(response.data)
+    } catch (err) {
+      console.log("Failed to delete meal:" + err)
+    }
   }
 
   const handleCheckout = () => {
-    return
+    navigate('/Checkout')
   }
 
   return (
     <div>
       <h2>My Order</h2>
-
       {mealCarts.map((mealCart) => (
         <MealCart
           key={mealCart.id}

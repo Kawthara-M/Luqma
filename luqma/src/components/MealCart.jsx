@@ -1,38 +1,60 @@
-import { useState } from 'react'
+import { useState } from "react"
 
 const Meal = ({ mealCart, handleEdit, handleDelete, handleCheckout }) => {
-  const [quantity, setQuantity] = useState(1)
-  const updateQuantity = (e) => {
+  //  const [quantity, setQuantity] = useState(null)
+  const [mealsQuantity, setMealsQuantity] = useState(() => {
+    const initialState = {}
+    mealCart.meals.forEach((meal) => {
+      initialState[meal._id] = meal.quantity
+    })
+    return initialState
+  })
+
+  const handleInputChange = (mealId, value) => {
+    setMealsQuantity((prev) => ({
+      ...prev,
+      [mealId]: value,
+    }))
+  }
+  /*   const updateQuantity = (e) => {
     const newValue = parseInt(e.target.value)
     setQuantity(newValue)
-  }
+  } */
   return (
     <div>
-      {mealCart
+      {mealCart.meals
         ? mealCart.meals.map((oneMeal) => (
             <>
-              <h2>
-                {oneMeal.meal.name}
-                {oneMeal.quantity}
-                {oneMeal.meal.price}
-              </h2>
+              <h2>Meal:{oneMeal.meal.name} </h2>
+              <p>Quantity: {oneMeal.quantity}</p>
+              <p>{oneMeal.meal.price} BD</p>
+
               <input
                 type="number"
                 name="quantity"
-                value={quantity}
-                onChange={updateQuantity}
+                value={mealsQuantity[oneMeal._id] || ""}
+                placeholder={`${oneMeal.quantity}`}
+                onChange={(e) => handleInputChange(oneMeal._id, e.target.value)}
               ></input>
-              <button onClick={() => handleEdit(mealCart._id, quantity)}>
+              <button
+                onClick={() =>
+                  handleEdit(
+                    mealCart._id,
+                    oneMeal.meal,
+                    mealsQuantity[oneMeal._id]
+                  )
+                }
+              >
                 Edit
+              </button>
+              <button onClick={() => handleDelete(mealCart._id, oneMeal.meal._id)}>
+                Delete
               </button>
             </>
           ))
         : null}
 
-      <button onClick={() => handleDelete(mealCart._id, quantity)}>
-        Delete
-      </button>
-      <button onClick={() => handleCheckout(mealCart._id, quantity)}>
+      <button onClick={() => handleCheckout()}>
         Checkout
       </button>
     </div>
