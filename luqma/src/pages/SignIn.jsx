@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { SignInCustomer } from '../services/Auth'
 import { useNavigate, Link } from 'react-router-dom'
 
+import '../../public/styleSheets/auth.css'
+
 const SignIn = ({ setCustomer }) => {
   let navigate = useNavigate()
   const initialState = { email: '', passwordDigest: '' }

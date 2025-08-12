@@ -85,11 +85,12 @@ body {
 .meal-price {
   font-weight: bold;
 }
-.wrapper {
+
+/* .wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 4rem); /* 4 because the top navbar height is 4 */
+  height: calc(100vh - 4rem); 4 because the top navbar height is 4
   margin: 0 auto;
   padding: 0 1rem;
   width: 50%;
@@ -178,9 +179,9 @@ h1 {
 .signUp-form a:hover,
 .SignIn-form a:hover {
   text-decoration: underline;
-}
+} */
 
-.sideNav {
+/* .sideNav {
   position: fixed;
   top: 4rem;
   left: 0;
@@ -241,4 +242,4 @@ h1 {
 
 .topNav img {
   height: 1.5rem;
-}
+} */

@@ -1,0 +1,87 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.SignIn-form,
+.signUp-form {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.SignIn-form h2,
+.signUp-form h2 {
+  color: #57712e;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+}
+
+.SignIn-form label,
+.signUp-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+  text-align: left;
+}
+
+.SignIn-form input,
+.signUp-form input {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  margin-bottom: 1.2rem;
+  transition: border-color 0.3s ease;
+}
+
+.SignIn-form input:focus,
+.signUp-form input:focus {
+  border-color: #57712e;
+  outline: none;
+}
+
+.SignIn-form button,
+.signUp-form button {
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  background-color: #57712e;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.SignIn-form button:disabled,
+.signUp-form button:disabled {
+  background-color: #d9d9d9;
+  cursor: not-allowed;
+}
+
+.SignIn-form button:not(:disabled):hover,
+.signUp-form button:not(:disabled):hover {
+  background-color: #476024;
+}
+
+.SignIn-form a,
+.signUp-form a {
+  color: #57712e;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.SignIn-form a:hover,
+.signUp-form a:hover {
+  text-decoration: underline;
+}
