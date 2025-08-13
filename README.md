@@ -34,7 +34,7 @@ A first step for Luqma project to see the light was planning, a critical stage t
 
 Following the planning, the development has mainly resulted in 2 main outcomes, a front-end and a backend developed and connected using the MERN Stack (MongoDB, Express, React, Node.js). <br>
 
-| [Luqma Deployed Version]() |
+| [Luqma Deployed Version](https://luqma.surge.sh/) |
 
 ## ⚙️ Technologies Used
 
@@ -74,6 +74,7 @@ The following wireframes present a visual blueprint of the application's user in
 #### **Styling**
 
 - Icons: [Flaticon](https://www.flaticon.com/)
+- Icons google: [google font](https://fonts.google.com/icons)
 - Loadings: [Css loaders](https://cssloaders.github.io/)
 - Colors: [Color hunt](https://colorhunt.co/)
 - Canva: [Canva](https://www.canva.com/design/DAGv75Jpsxk/kfeLLcHrUfYt8R4yOYLI6w/edit?utm_content=DAGv75Jpsxk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
