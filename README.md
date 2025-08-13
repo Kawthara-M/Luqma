@@ -10,7 +10,7 @@
 Luqma, a matchmaking platform connecting customers, resturants, and delivery in one platform. Inspired by platforms like Talabat & Jahez, Luqma aims to streamline the food ordering experience from browsing to doorstep delivery.
 <br>
 <div align="center">
-  <img src="" width="40%" height="100px" alt="Logo">
+  <img src="./assets/logo.png" width="40%" height="100px" alt="Logo">
 </div>
 
 
@@ -49,11 +49,25 @@ The following wireframes present a visual blueprint of the application's user in
 
 ---
 ### ✨ **Future Enhancements**
+- **Real-Time Driver Location Tracking** : Show the driver’s live location on a map after the order is out for delivery.
+- **Secure Payment Methods** : Fully functional checkout with secure gateways (credit/debit cards, Apple Pay, Benefit Pay).
+- **Multi-language Support** : Arabic and English interface.
 
 ---
 ### **Credits**
+## **BackEnd**
 - Search Functionality Guide: [Medium Platform](https://medium.com/@aniagudo.godson/running-a-simple-search-query-on-mongodb-atlas-using-express-nodejs-2-refining-search-queries-49949ce5c4a1)
 - Password Validator: [npm package](https://www.npmjs.com/package/password-validator)
+- Mongoose Populate: [Geeks for geeks](https://www.geeksforgeeks.org/mongodb/mongoose-populate/)
 
+## **FrontEnd**
+- React Route (useLocation hook): [geeks for geeks](https://www.geeksforgeeks.org/reactjs/react-router-hooks/#uselocation-hook)
+- Password validator: [Geeks for geeks](https://www.geeksforgeeks.org/reactjs/create-a-password-validator-using-reactjs/)
+
+  ## **Styling**
+- Icons: [Flaticon](https://www.flaticon.com/)
+- Loadings: [Css loaders](https://cssloaders.github.io/)
+- Colors: [Color hunt](https://colorhunt.co/)
+- Canva: [Canva](https://www.canva.com/design/DAGv75Jpsxk/kfeLLcHrUfYt8R4yOYLI6w/edit?utm_content=DAGv75Jpsxk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 ---
