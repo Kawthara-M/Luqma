@@ -1,10 +1,10 @@
 .wrapper {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 .SignIn-form,
@@ -19,7 +19,10 @@
   overflow-y: auto;
   text-align: center;
 }
-
+.SignIn-form {
+  height: 360px;
+  overflow-y: none;
+}
 
 .SignIn-form h2,
 .signUp-form h2 {
@@ -34,7 +37,6 @@
   text-align: center;
   margin-bottom: 1rem;
 }
-
 
 .SignIn-form label,
 .signUp-form label {
@@ -81,10 +83,10 @@
   background-color: #d9d9d9;
   cursor: not-allowed;
 }
-.signUp-form p, .SignIn-form p {
-  font-size: .85rem;
+.signUp-form p,
+.SignIn-form p {
+  font-size: 0.85rem;
 }
-
 
 .SignIn-form button:not(:disabled):hover,
 .signUp-form button:not(:disabled):hover {

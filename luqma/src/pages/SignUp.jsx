@@ -43,16 +43,17 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setErrorMessage("")
 
-    if (errorMessage) {
-      return
-    } else {
-      console.log(formValues)
+    try {
       const payload = await SignUpCustomer(formValues)
-      setFormValues(initialState)
+      if (payload) {
+        setFormValues(initialState)
+        navigate("/auth/sign-in")
+      }
+    } catch (error) {
+      setErrorMessage(error.message)
     }
-
-    navigate("/sign-in")
   }
 
   return (
@@ -108,23 +109,11 @@ const SignUp = () => {
             value={formValues.password}
             required
             autoComplete="off"
-              style={{
-
-                marginBottom:".5rem"
-              }}
+            style={{
+              marginBottom: ".5rem",
+            }}
           />
-          {errorMessage === "" ? null : (
-            <span
-              style={{
-                fontSize: ".8rem",
-                color: "red",
-                marginTop:"0",
-                marginBottom:".5rem"
-              }}
-            >
-              {errorMessage}
-            </span>
-          )}
+
           <br />
           <label htmlFor="confirmPassword">Comfirm Password</label>
           <input
@@ -151,7 +140,18 @@ const SignUp = () => {
             Sign Up
           </button>
         </form>
-
+        {errorMessage === "" ? null : (
+          <span
+            style={{
+              fontSize: ".8rem",
+              color: "red",
+              marginTop: "0",
+              marginBottom: ".5rem",
+            }}
+          >
+            {errorMessage}
+          </span>
+        )}
         <p style={{ marginTop: "1rem", textAlign: "center" }}>
           Already have an account? <Link to="/auth/sign-in">Sign In</Link>
         </p>
