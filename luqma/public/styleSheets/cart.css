@@ -1,3 +1,7 @@
+.wrap-cart {
+  margin-top: 10rem;
+}
+
 .cart-container {
   display: flex;
   justify-content: center;
@@ -44,9 +48,9 @@
   color: #57712e;
 }
 
-.cart-right input[type='number'] {
+input[type="number"] {
   width: 70px;
-  padding: 5px;
+  padding: .4rem;
   margin: 8px 0;
   border: 1px solid #57712e;
   border-radius: 4px;
@@ -58,10 +62,11 @@
   gap: 10px;
   margin-top: 8px;
   margin: 10px;
+
 }
 
 .cart-buttons button {
-  padding: 6px 12px;
+  padding: .4rem .6rem;
   border: none;
   background: #57712e;
   color: white;
@@ -88,4 +93,14 @@
   color: white;
   font-weight: bold;
   font-size: 25px;
+}
+
+.empty-cart {
+  margin-top: 20rem;
+  font-size: 2.5rem;
+  color: #606656;
+}
+.add-btn {
+  margin-top: 1rem;
+  width: 6rem;
 }

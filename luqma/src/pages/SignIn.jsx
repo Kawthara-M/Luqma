@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { SignInCustomer } from "../services/Auth"
 import { useNavigate, Link } from "react-router-dom"
-import validator from "validator"
 
 import "../../public/styleSheets/auth.css"
 
@@ -15,39 +14,27 @@ const SignIn = ({ setCustomer }) => {
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
   }
-  const validate = (value) => {
-    if (
-      validator.isStrongPassword(value, {
-        minLength: 8,
-        minLowercase: 1,
-        minUppercase: 1,
-        minNumbers: 1,
-        minSymbols: 1,
-      })
-    ) {
-      setErrorMessage("")
-    } else {
-      setErrorMessage("Invalid!")
-    }
-  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
-    if (errorMessage) {
-      return
-    } else {
-      const payload = await SignInCustomer(formValues)
-      setFormValues(initialState)
-      setCustomer(payload)
-    }
+    setErrorMessage("")
 
-    navigate("/Home")
+    try {
+      const payload = await SignInCustomer(formValues)
+      if (payload && payload.id) {
+        setFormValues(initialState)
+        setCustomer(payload)
+        navigate("/Home")
+      }
+    } catch (error) {
+      setErrorMessage(error.message)
+    }
   }
 
   return (
     <div className="wrapper">
+      <h2>Sign In</h2>
       <div className="SignIn-form">
-        <h2>Sign In</h2>
-
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="email">Email</label>
@@ -69,14 +56,13 @@ const SignIn = ({ setCustomer }) => {
               onChange={(e) => {
                 handleChange(e)
               }}
-              onBlur={(e) => validate(e.target.value)}
               type="password"
               id="password"
               name="passwordDigest"
               value={formValues.passwordDigest}
               required
               style={{
-                marginBottom: "0",
+                marginBottom: ".5rem",
               }}
             />
             {errorMessage === "" ? null : (
@@ -91,11 +77,7 @@ const SignIn = ({ setCustomer }) => {
               </span>
             )}
           </div>
-          <button
-            disabled={
-              !formValues.email || !formValues.passwordDigest || errorMessage
-            }
-          >
+          <button disabled={!formValues.email || !formValues.passwordDigest}>
             Sign In
           </button>
         </form>

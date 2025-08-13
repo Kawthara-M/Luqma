@@ -32,7 +32,6 @@ function App() {
     if (token) {
       checkToken()
     }
-    console.log(customer)
   }, [])
 
   return (
