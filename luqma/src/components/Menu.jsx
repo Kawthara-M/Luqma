@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import Meal from "./Meal"
 import axios from "axios"
+import '../../public/styleSheets/meal.css'
 
 const Menu = ({ meals, customer }) => {
   const [cart, setCart] = useState(null)
@@ -67,7 +68,9 @@ const Menu = ({ meals, customer }) => {
     }
   }
 
-  return (
+  return (<>
+            <h2 className='menu-header'>Menu</h2>
+
     <div className="menu-container">
       {meals.length > 0 ? (
         
@@ -87,6 +90,7 @@ const Menu = ({ meals, customer }) => {
         </div>
       )}
     </div>
+    </>
   )
 }
 

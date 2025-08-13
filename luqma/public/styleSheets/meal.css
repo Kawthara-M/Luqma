@@ -1,0 +1,88 @@
+.menu-container {
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1500px;
+  justify-content: center;
+}
+
+h2 {
+  color: #57712e;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.menu-header {
+  font-size: 70px;
+  padding: 15px;
+}
+
+.meal-card {
+  background-color: white;
+  border: 2px solid #57712e;
+  height: 840px;
+  width: 400px;
+  padding: 15px;
+  margin: 10px;
+}
+
+.meal-discription {
+  font-size: 24px;
+  padding: 10px;
+  margin: 10px;
+}
+
+img {
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #57712e;
+}
+
+h4 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #57712e;
+  margin: 15px 0 5px;
+}
+
+p {
+  color: #57712e;
+  font-size: 12px;
+  margin: 10px 0;
+}
+
+input {
+  width: 60px;
+  padding: 8px 15px;
+  margin: 5px 0;
+  border: 1px solid #57712e;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 15px;
+}
+
+button {
+  background-color: #57712e;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  font-size: 15px;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #57712e;
+}
+
+.restaurant-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  text-align: center;
+}
