@@ -198,10 +198,11 @@
   border: 1px solid rgba(231, 76, 60, 0.3);
 }
 
-.status-message.info {
+.status-message.info p {
   background: rgba(255, 140, 66, 0.1);
   color: #ff8c42;
   border: 1px solid rgba(255, 140, 66, 0.3);
+  font-size: 1rem;
 }
 
 /* Search Results Header */
