@@ -33,9 +33,8 @@ const Category = ({ onSelectCategory }) => {
 
       <div className="category-buttons">
     <div>
-      <h2>Categories</h2>
 
-//       {error && <p>{error}</p>}
+ {error && <p>{error}</p>}
       <div>
         {cuisines.map((cuisine) => (
           <button
