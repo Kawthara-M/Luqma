@@ -1,14 +1,15 @@
 import Cart from "./Cart"
 import { useState, useEffect } from "react"
-import { Navigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 
 const Checkout = () => {
-  const [order, setOrder] = useState([])
+  const location = useLocation()
+  const [order, setOrder] = useState(null)
 
-  let navigate = Navigate()
-
+  const navigate = useNavigate()
   useEffect(() => {
-    setOrder(Cart)
+    /* console.log("does state show?" + location.state?.mealCarts[0]) */
+    //setOrder(location.state?.mealCarts[0])
   }, [])
 
   const handleSubmitOrder = async (e) => {
@@ -26,12 +27,22 @@ const Checkout = () => {
       <div>
         <h1>Checkout</h1>
         <div>
-          {order.map((item) => (
-            <p key={item.id}>
-              {item.name} - ${item.price}
-            </p>
-          ))}
-          <p>total price: ${price}</p>
+          {console.log("order:")}
+          {console.log(location.state.mealCarts[0])}
+          {console.log("meal:")}
+          {console.log(location.state.mealCarts[0].meals[0].meal.name)}
+
+          {location.state.mealCarts[0].meals.map((one) => {
+            return (
+              <div key={one.meal._id}>
+                <h1>{one.meal.name}</h1>
+                <p>Quantity: {one.quantity}</p>
+                <p>Price: {one.meal.price} BD</p>
+                <p>Meal Total Price: {parseFloat(one.meal.price)*parseInt(one.quantity)} BD</p>
+              </div>
+            )
+          })}
+          <p>total price: {location.state.mealCarts[0].totalPrice}</p>
         </div>
       </div>
 
