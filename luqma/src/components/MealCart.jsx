@@ -25,9 +25,13 @@ const  MealCart = ({ mealCart, handleEdit, handleDelete, handleCheckout }) => {
       {mealCart.meals
         ? mealCart.meals.map((oneMeal) => (
             <>
-              <h2>Meal:{oneMeal.meal.name} </h2>
+              
+              <img src={oneMeal.meal.image} alt="" />
+              <div className="cart-right">
+              <p>Meal:{oneMeal.meal.name} </p>
               <p>Quantity: {oneMeal.quantity}</p>
               <p>{oneMeal.meal.price} BD</p>
+              </div>
 
               <input
                 type="number"
