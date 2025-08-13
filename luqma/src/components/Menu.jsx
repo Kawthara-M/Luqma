@@ -27,25 +27,69 @@ const Menu = ({ meals, customer }) => {
     getCart()
   }, [])
 
-  const handleAddToCart = async (mealId, mealQuantity) => {
+  const handleAddToCart = async (meal, mealQuantity) => {
     try {
+      const mealId = meal._id
       if (!customer) {
         setShowLoginCard(true)
         return
       }
 
       if (cart) {
-        const response = await axios.put(
-          `http://localhost:3010/cart/${cart._id}`,
-          { mealId, quantity: mealQuantity },
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
+        const inCart = await axios.get(`http://localhost:3010/cart/`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        })
+        // if cart is empty
+        if (!inCart.length) {
+          // If there are meals
+          if (inCart.data[0].meals.length > 0) {
+            console.log(
+              "There are meals! Proceeding to check if food is from the same res"
+            )
+            // Grab restaurantId of cart
+            const restaurantIdFromCart = inCart.data[0].restaurant._id
+
+            const restaurantIdFromMeal = meal.restaurant
+            // Check if meal from restaurant is the same as restaurant in cart
+            if (restaurantIdFromCart === restaurantIdFromMeal) {
+              console.log("Same restaurant!")
+              const response = await axios.put(
+                `http://localhost:3010/cart/${cart._id}`,
+                { mealId, quantity: mealQuantity },
+                {
+                  headers: {
+                    Authorization: `Bearer ${localStorage.getItem("token")}`,
+                  },
+                }
+              )
+              // console.log(response.data)
+              setCart(response.data)
+            } else {
+              console.log("you cant add meal from different restaurant")
+              return
+            }
+
+          } else {
+            // No meals ): just add it
+
+            const response = await axios.put(
+              `http://localhost:3010/cart/${cart._id}`,
+              { mealId, quantity: mealQuantity },
+              {
+                headers: {
+                  Authorization: `Bearer ${localStorage.getItem("token")}`,
+                },
+              }
+            )
+            // console.log(response.data)
+            setCart(response.data)
           }
-        )
-        console.log(response.data)
-        setCart(response.data)
+        } else {
+          console.log("you cant add meal from different restaurant")
+          return
+        }
       } else {
         const response = await axios.post(
           "http://localhost:3010/cart",
@@ -70,12 +114,11 @@ const Menu = ({ meals, customer }) => {
   return (
     <div className="menu-container">
       {meals.length > 0 ? (
-        
         meals.map((meal) => (
           <Meal
             key={meal._id}
             meal={meal}
-            handleAddtoCart={(id, qty) => handleAddToCart(meal._id, qty)}
+            handleAddtoCart={(id, qty) => handleAddToCart(meal, qty)}
           />
         ))
       ) : (
