@@ -102,7 +102,7 @@ const UserDetails = ({ customerId }) => {
 
   return (
     <>
-    <h2>User Details</h2>
+    <h2>Profile</h2>
     <div className="user-details-container">
       {editing ? (
         <form
@@ -111,7 +111,6 @@ const UserDetails = ({ customerId }) => {
             handleSave()
           }}
         >
-          <h2>Edit User Details</h2>
 
           <div className="name">
             <label className="name-lable">Name:</label>

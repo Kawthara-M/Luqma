@@ -26,9 +26,15 @@ const Navbar = ({ handleLogOut, customer }) => {
         </div>
 
         <div className="topNav-right">
-          <Link to="/cart" onClick={closeMenu}>
-            <img src={cartIcon} alt="cart icon" className="cart-icon" />
-          </Link>
+          {customer ? (
+            <Link to="/cart" onClick={closeMenu}>
+              <img src={cartIcon} alt="cart icon" className="cart-icon" />
+            </Link>
+          ) : (
+            <span className="cart-icon-disabled" title="Sign in to view cart">
+              <img src={cartIcon} alt="cart icon" className="cart-icon" />
+            </span>
+          )}
         </div>
       </nav>
 

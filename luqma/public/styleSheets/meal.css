@@ -24,7 +24,7 @@ h2 {
 .meal-card {
   background-color: white;
   border: 2px solid #57712e;
-  height: 46rem;
+  height: 47rem;
   width: 25rem;
   padding: 1rem;
   margin: 1rem;
@@ -57,7 +57,7 @@ p {
 
 input {
   width: 3rem;
-  height:2.5rem;
+  height: 2.5rem;
   margin: 8px 2px;
   border: 1px solid #57712e;
   border-radius: 4px;
@@ -69,9 +69,9 @@ button {
   color: white;
   border: none;
   padding: 8px 15px;
-  font-size: .95rem;
+  font-size: 0.95rem;
   border-radius: 5px;
-  margin:0 4px;
+  margin: 0 4px;
 }
 
 button:hover {
@@ -91,4 +91,29 @@ button:hover {
   font-weight: bold;
   font-size: 4.5rem;
   margin-top: 5rem;
+}
+.notification {
+  margin-top: 8px;
+  color: #57712e;
+  font-weight: bold;
+  font-size: 1rem;
+  animation: fadeout 2s forwards;
+}
+
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+button:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+  opacity: 0.7;
 }

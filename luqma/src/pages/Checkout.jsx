@@ -1,4 +1,3 @@
-import Cart from "./Cart"
 import { useState, useEffect } from "react"
 import { useNavigate, useLocation } from "react-router-dom"
 
@@ -7,10 +6,6 @@ const Checkout = () => {
   const [order, setOrder] = useState(null)
 
   const navigate = useNavigate()
-  useEffect(() => {
-    /* console.log("does state show?" + location.state?.mealCarts[0]) */
-    //setOrder(location.state?.mealCarts[0])
-  }, [])
 
   const handleSubmitOrder = async (e) => {
     e.preventDefault()
@@ -27,10 +22,6 @@ const Checkout = () => {
       <div>
         <h1>Checkout</h1>
         <div>
-          {console.log("order:")}
-          {console.log(location.state.mealCarts[0])}
-          {console.log("meal:")}
-          {console.log(location.state.mealCarts[0].meals[0].meal.name)}
 
           {location.state.mealCarts[0].meals.map((one) => {
             return (

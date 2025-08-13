@@ -1,12 +1,16 @@
 import "../../public/styleSheets/meal.css"
 import { useState } from "react"
 
-const Meal = ({ meal, handleAddtoCart }) => {
+const Meal = ({ meal, handleAddtoCart, customer }) => {
   const [quantity, setQuantity] = useState(1)
 
   const updateQuantity = (e) => {
     const newValue = parseInt(e.target.value)
     setQuantity(newValue)
+  }
+  const handleAddClick = () => {
+    if (!customer) return 
+    handleAddtoCart(meal, quantity)
   }
 
   return (
@@ -19,11 +23,12 @@ const Meal = ({ meal, handleAddtoCart }) => {
           <p className="meal-price"> {meal.price.toFixed(2)} BD</p>
           <input
             type="number"
+            min="1"
             name="quantity"
             value={quantity}
             onChange={updateQuantity}
           ></input>
-          <button onClick={() => handleAddtoCart(meal._id, quantity)}>
+          <button onClick={handleAddClick} disabled={!customer}>
             Add to Cart
           </button>
         </div>

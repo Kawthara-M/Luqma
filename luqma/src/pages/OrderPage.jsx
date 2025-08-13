@@ -53,7 +53,7 @@ const OrderPage = () => {
       {error && <p className="error">{error}</p>}
 
       <section>
-        <h2>My Order</h2>
+        <h2>Current Orders</h2>
         {loadingCart ? (
           <p>Loading current order...</p>
         ) : cartOrders.length === 0 ? (

@@ -17,7 +17,7 @@ h2 {
   color: red;
 }
 
-/* Shared card styles */
+
 .order-card,
 .past-order-card {
   display: flex;
@@ -25,7 +25,7 @@ h2 {
   border: 1px solid #ccc;
   border-radius: 8px;
   background: #fff;
-  margin-bottom: 20px;
+  margin: 2rem;
   overflow: hidden;
 }
 

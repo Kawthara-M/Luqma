@@ -1,11 +1,9 @@
 import Axios from 'axios'
 
-//CHANGE BACK TO DEPLOYED
 export const BASE_URL = 'http://localhost:3010'
 
 const Customer = Axios.create({ baseURL: BASE_URL })
 
-// Intercepts every request axios makes
 Customer.interceptors.request.use(
   async (config) => {
     const token = localStorage.getItem('token')

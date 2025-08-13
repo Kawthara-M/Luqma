@@ -19,7 +19,7 @@ const Cart = () => {
         })
         setMealCarts(response.data)
       } catch (err) {
-        console.log("Failed to add to cart")
+        console.error("Failed to add to cart")
       }
     }
     onMount()
@@ -38,7 +38,7 @@ const Cart = () => {
       )
       setLoad(!load)
     } catch (err) {
-      console.log("Failed to edit meal" + err)
+      console.error("Failed to edit meal" + err)
     }
   }
 
@@ -56,7 +56,7 @@ const Cart = () => {
       setMealCarts(response.data)
       setLoad(!load)
     } catch (err) {
-      console.log("Failed to delete meal:" + err)
+      console.error("Failed to delete meal:" + err)
     }
   }
 

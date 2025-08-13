@@ -1,7 +1,7 @@
 .user-details-container {
   max-width: 500px;
 
-  margin: 10px auto;
+  margin: 1rem auto;
   padding: 30px;
   background: #ffffff;
   border-radius: 16px;
@@ -10,6 +10,8 @@
 }
 
 h2 {
+  margin-top: 8rem;
+
   font-size: 26px;
   font-weight: 700;
   color: #2e3d27;
@@ -17,9 +19,9 @@ h2 {
 }
 
 .user-details-container p {
-  font-size: 15px;
+  font-size: 1rem;
   color: #444;
-  margin: 8px 0;
+  margin: 0;
 }
 
 .user-details-container span {
@@ -41,7 +43,7 @@ h2 {
   margin-bottom: 15px;
   border: 1px solid #b8c9a1;
   border-radius: 8px;
-  font-size: .8rem;
+  font-size: 0.8rem;
   outline: none;
   transition: border 0.2s;
 }
@@ -65,15 +67,14 @@ h2 {
 
 .user-details-container button {
   padding: 6px 14px;
-  font-size: .8rem;
+  font-size: 0.8rem;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  background-color: #4a7c59;
+  background-color: 57712e;
   color: white;
   transition: background-color 0.3s ease;
-  width:10rem;
-  
+  width: 10rem;
 }
 
 .user-details-container button:hover {

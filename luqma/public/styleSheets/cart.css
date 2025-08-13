@@ -22,9 +22,7 @@
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
-
 }
-
 
 .total-price {
   display: flex;
@@ -43,12 +41,14 @@
   background: #57712e;
   color: white;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.5rem;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  align-self: flex-end;
+  background: #57712e;
+  color: white;
 }
-
 
 .cart-item {
   display: flex;
@@ -87,49 +87,39 @@
 
 input[type="number"] {
   width: 70px;
-  padding: .4rem;
-  margin: 8px 0;
+  padding: 0.4rem;
+  margin: 10px 0;
   border: 1px solid #57712e;
   border-radius: 4px;
   text-align: center;
+  height:2.4rem;
 }
 
 .cart-buttons {
   display: flex;
-  gap: 10px;
-  margin-top: 8px;
-  margin: 10px;
-
+  margin: 10px 2px;
 }
 
 .cart-buttons button {
-  padding: .4rem .6rem;
+  padding: 0.4rem 0.6rem;
   border: none;
   background: #57712e;
   color: white;
   border-radius: 4px;
   font-weight: bold;
+  width:4rem;
+  height:2.4rem;
 }
 
 .delete-button {
   background-color: red;
-  padding: 6px 12px;
   border: none;
   color: white;
   border-radius: 4px;
   font-weight: bold;
   display: flex;
   gap: 10px;
-  margin-top: 8px;
-}
-
-.checkout-btn {
-  align-self: flex-end;
-  padding: 8px 14px;
-  background: #57712e;
-  color: white;
-  font-weight: bold;
-  font-size: 25px;
+  margin-top: 10px;
 }
 
 .empty-cart {
@@ -138,6 +128,6 @@ input[type="number"] {
   color: #606656;
 }
 .add-btn {
-  margin-top: 1rem;
+  margin-top: 0.1rem;
   width: 6rem;
 }

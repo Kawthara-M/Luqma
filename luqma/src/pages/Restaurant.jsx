@@ -1,11 +1,9 @@
-import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Menu from '../components/Menu'
 import '../../public/styleSheets/meal.css'
 
-// import MenuBar from "./MenuBar"
 
 const Restaurant = ({ customer }) => {
   const [restaurant, setRestaurant] = useState('')
@@ -13,14 +11,14 @@ const Restaurant = ({ customer }) => {
   let { id } = useParams()
 
   useEffect(() => {
-    console.log('customer from restaurant page is:' + customer)
+
     const getRestaurant = async (req, res) => {
       const response = await axios.get(
-        `https://luqma.onrender.com/restaurants/${id}`
+        `http://localhost:3010/restaurants/${id}`
       )
       setRestaurant(response.data)
       const mealsResponse = await axios.get(
-        `https://luqma.onrender.com/restaurants/${id}/menu`
+        `http://localhost:3010/restaurants/${id}/menu`
       )
 
       setMeals(mealsResponse.data)

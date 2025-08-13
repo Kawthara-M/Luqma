@@ -6,19 +6,19 @@ div {
   display: flex;
   flex-direction: column;
   align-items: center; 
-  max-width: 600px; /* Limit width */
-  padding: 0 1rem; /* Some padding for smaller screens */
+  max-width: 600px; 
+  padding: 0 1rem; 
   text-align: center;
 }
 
 h1 {
   font-size: 3rem;
   font-weight: 700;
-  color: #57712e;
+  color: #080d00;
   margin-bottom: .1rem;
 }
 
 p {
   font-size: 1.5rem;
-  color: #57712e;
+  color: #273e01;
 }

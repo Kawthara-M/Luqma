@@ -15,7 +15,6 @@ const Home = () => {
   const [searched, toggleSearched] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
 
-  // category
   useEffect(() => {
     const getRestaurants = async () => {
       setLoading(true)
@@ -37,7 +36,6 @@ const Home = () => {
     getRestaurants()
   }, [selectedCategory])
 
-  //search
   const getSearchResults = async (e) => {
     e.preventDefault()
 
@@ -70,13 +68,11 @@ const Home = () => {
 
   const handleCategorySelect = (category) => {
     setSelectedCategory(category)
-    // clear seach result
     if (searched) {
       clearSearch()
     }
   }
 
-  //update icons
   let currentData, currentTitle, currentIcon
 
   if (searched) {
@@ -113,9 +109,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Main Content */}
       <div className="main-content">
-        {/* Content Area */}
         <div className="content-area">
           <div className="section-header">
             <h2 className="section-title">
@@ -128,7 +122,6 @@ const Home = () => {
             </h2>
           </div>
 
-          {/* Search Results Header */}
           {searched && (
             <div className="search-results-header">
               <div>
@@ -141,7 +134,6 @@ const Home = () => {
             </div>
           )}
 
-          {/* Loading State */}
           {loading && (
             <div className="loading-container">
               <div className="loading-spinner"></div>
@@ -149,7 +141,6 @@ const Home = () => {
             </div>
           )}
 
-          {/* Error State */}
           {error && (
             <div className="error-container">
               <div className="error-icon">😔</div>
@@ -157,7 +148,6 @@ const Home = () => {
             </div>
           )}
 
-          {/* Restaurants Grid */}
           {!loading && !error && (
             <div className="restaurants-grid">
               {currentData.length > 0 ? (
@@ -178,7 +168,6 @@ const Home = () => {
           )}
         </div>
 
-        {/* Sidebar */}
         <div className="sidebar">
           <h3 className="sidebar-title">
             <span>🏷️</span>
