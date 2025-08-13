@@ -55,16 +55,16 @@ The following wireframes present a visual blueprint of the application's user in
 
 ---
 ### **Credits**
-## **BackEnd**
+#### **BackEnd**
 - Search Functionality Guide: [Medium Platform](https://medium.com/@aniagudo.godson/running-a-simple-search-query-on-mongodb-atlas-using-express-nodejs-2-refining-search-queries-49949ce5c4a1)
 - Password Validator: [npm package](https://www.npmjs.com/package/password-validator)
 - Mongoose Populate: [Geeks for geeks](https://www.geeksforgeeks.org/mongodb/mongoose-populate/)
 
-## **FrontEnd**
+#### **FrontEnd**
 - React Route (useLocation hook): [geeks for geeks](https://www.geeksforgeeks.org/reactjs/react-router-hooks/#uselocation-hook)
 - Password validator: [Geeks for geeks](https://www.geeksforgeeks.org/reactjs/create-a-password-validator-using-reactjs/)
-
-  ## **Styling**
+  
+#### **Styling**
 - Icons: [Flaticon](https://www.flaticon.com/)
 - Loadings: [Css loaders](https://cssloaders.github.io/)
 - Colors: [Color hunt](https://colorhunt.co/)
