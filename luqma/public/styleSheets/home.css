@@ -101,6 +101,8 @@
   align-items: center;
   gap: 12px;
   flex-wrap: wrap;
+
+  color: white;
 }
 
 .results-count {
@@ -203,6 +205,8 @@
   color: #ff8c42;
   border: 1px solid rgba(255, 140, 66, 0.3);
   font-size: 1rem;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 /* Search Results Header */
