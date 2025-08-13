@@ -78,13 +78,19 @@ const Cart = () => {
         {mealCarts.length > 0 ? (
           mealCarts[0].meals.length > 0 ? (
             <>
-              <h2>
-                Total Price:
-                {mealCarts[0].totalPrice ? mealCarts[0].totalPrice.toFixed(2) : 0} BD
-              </h2>
+            <div className="checkout-container">
+              <div className="total-price">
+                <h2>Total Price:</h2>
+                <p>
+                  {mealCarts[0].totalPrice
+                    ? mealCarts[0].totalPrice.toFixed(2)
+                    : "0.00"}{" "}
+                  BD
+                </p>
+              </div>
               <button className="checkout-btn" onClick={handleCheckout}>
                 Checkout
-              </button>
+              </button></div>
             </>
           ) : (
             <>

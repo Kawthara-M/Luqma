@@ -16,7 +16,7 @@ const Meal = ({ meal, handleAddtoCart }) => {
           <img src={meal.image} alt={meal.name} />
           <h4>{meal.name}</h4>
           <p className="meal-discription">{meal.description}</p>
-          <p className="meal-price">BD {meal.price.toFixed(2)}</p>
+          <p className="meal-price"> {meal.price.toFixed(2)} BD</p>
           <input
             type="number"
             name="quantity"
