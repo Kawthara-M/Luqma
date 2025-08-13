@@ -1,8 +1,7 @@
-import '../../public/styleSheets/cart.css'
-import { useState } from 'react'
+import "../../public/styleSheets/cart.css"
+import { useState } from "react"
 
-const MealCart = ({ mealCart, handleEdit, handleDelete, handleCheckout }) => {
-
+const MealCart = ({ mealCart, handleEdit, handleDelete }) => {
   const [mealsQuantity, setMealsQuantity] = useState(() => {
     const initialState = {}
     mealCart.meals.forEach((meal) => {
@@ -14,13 +13,12 @@ const MealCart = ({ mealCart, handleEdit, handleDelete, handleCheckout }) => {
   const handleInputChange = (mealId, value) => {
     setMealsQuantity((prev) => ({
       ...prev,
-      [mealId]: value
+      [mealId]: value,
     }))
   }
 
   return (
     <div>
-
       {mealCart.meals
         ? mealCart.meals.map((oneMeal) => (
             <>
@@ -28,15 +26,22 @@ const MealCart = ({ mealCart, handleEdit, handleDelete, handleCheckout }) => {
                 <div className="cart-item">
                   <img src={oneMeal.meal.image} alt="" />
                   <div className="cart-right">
-                    <p>Meal:{oneMeal.meal.name} </p>
-                    <p>Quantity: {oneMeal.quantity}</p>
+                    <p>
+                      <strong>Meal: </strong>
+                      {oneMeal.meal.name}{" "}
+                    </p>
+                    <p>
+                      <strong>Quantity:</strong> {oneMeal.quantity}
+                    </p>
                     <p>{oneMeal.meal.price} BD</p>
                   </div>
 
                   <input
                     type="number"
                     name="quantity"
-                    value={mealsQuantity[oneMeal._id] || ''}
+                    title="increase by?"
+                    min="1"
+                    value={mealsQuantity[oneMeal._id] || ""}
                     placeholder={`${oneMeal.quantity}`}
                     onChange={(e) =>
                       handleInputChange(oneMeal._id, e.target.value)
@@ -55,14 +60,13 @@ const MealCart = ({ mealCart, handleEdit, handleDelete, handleCheckout }) => {
                     >
                       Edit
                     </button>
-                    </div>
-                    <button className='delete-button'
-                      onClick={() =>
-                        handleDelete(mealCart._id, oneMeal.meal._id)
-                      }
-                    >
-                      Delete
-                    </button>
+                  </div>
+                  <button
+                    className="delete-button"
+                    onClick={() => handleDelete(mealCart._id, oneMeal.meal._id)}
+                  >
+                    Delete
+                  </button>
                 </div>
               </div>
             </>

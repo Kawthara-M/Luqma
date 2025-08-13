@@ -29,7 +29,7 @@ const Cart = () => {
     try {
       const response = await axios.put(
         `http://localhost:3010/cart/${orderId}`,
-        { mealId, quantity: mealQuantity },
+        { mealId, quantity: mealQuantity, note: "note" },
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -66,7 +66,7 @@ const Cart = () => {
 
   return (
     <>
-      <div>
+      <div className="wrap-cart">
         {mealCarts.map((mealCart) => (
           <MealCart
             key={mealCart.id}
@@ -75,15 +75,12 @@ const Cart = () => {
             handleDelete={handleDelete}
           />
         ))}
-        {mealCarts.length >0  ? (
-          mealCarts[0].meals.length >0 ? (
+        {mealCarts.length > 0 ? (
+          mealCarts[0].meals.length > 0 ? (
             <>
               <h2>
                 Total Price:
-                {mealCarts[0].totalPrice
-                  ? mealCarts[0].totalPrice
-                  : 0}{" "}
-                BD
+                {mealCarts[0].totalPrice ? mealCarts[0].totalPrice.toFixed(2) : 0} BD
               </h2>
               <button className="checkout-btn" onClick={handleCheckout}>
                 Checkout
@@ -91,16 +88,29 @@ const Cart = () => {
             </>
           ) : (
             <>
-            <h1 className="empty-cart">Empty Cart!</h1>
-            <button className="add-btn" onClick={()=>{
-              navigate("/Home")
-            }}>
+              <h1 className="empty-cart">Empty Cart!</h1>
+              <button
+                className="add-btn"
+                onClick={() => {
+                  navigate("/Home")
+                }}
+              >
                 Add
               </button>
             </>
           )
         ) : (
-          <h1 className="empty-cart">Empty Cart!</h1>
+          <>
+            <h1 className="empty-cart">Empty Cart!</h1>
+            <button
+              className="add-btn"
+              onClick={() => {
+                navigate("/Home")
+              }}
+            >
+              Add
+            </button>
+          </>
         )}
       </div>
     </>
