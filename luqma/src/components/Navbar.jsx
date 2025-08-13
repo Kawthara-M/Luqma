@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom'
-import { useState } from 'react'
-import cartIcon from '../assets/cart.png'
-import '../../public/styleSheets/navBar.css'
+import { Link } from "react-router-dom"
+import { useState, useEffect } from "react"
+import cartIcon from "../assets/cart.png"
+import "../../public/styleSheets/navBar.css"
 
 const Navbar = ({ handleLogOut, customer }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -32,15 +32,15 @@ const Navbar = ({ handleLogOut, customer }) => {
         </div>
       </nav>
 
-      <nav className={`sideNav ${isOpen ? 'open' : ''}`}>
+      <nav className={`sideNav ${isOpen ? "open" : ""}`}>
         <Link to="/Home" onClick={closeMenu}>
           Home
         </Link>
         <Link to="/about" onClick={closeMenu}>
           About Us
         </Link>
-
-        {customer && (
+{console.log(customer)}
+        {customer ? (
           <>
             <Link to="/orders" onClick={closeMenu}>
               Orders
@@ -58,9 +58,7 @@ const Navbar = ({ handleLogOut, customer }) => {
               Log Out
             </Link>
           </>
-        )}
-
-        {!customer && (
+        ) : (
           <>
             <Link to="/auth/sign-in" onClick={closeMenu}>
               Sign In

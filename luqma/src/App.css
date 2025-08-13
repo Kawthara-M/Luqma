@@ -13,7 +13,7 @@ body {
   background: linear-gradient(135deg, #f8fdf8 0%, #fff5f0 100%);
 }
 
-.restaurant-list {
+/* .restaurant-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
@@ -43,15 +43,15 @@ body {
 /* .restaurant h3,
 .restaurant h4 {
   margin: 0.75rem 1rem;
-}
+} */
 
-.restaurant-page {
+/* .restaurant-page {
   max-width: 960px;
   margin: 0 auto;
   padding: 2rem 1rem;
-}
+} */
 
-.restaurant-name {
+/* .restaurant-name {
   font-size: 2rem;
   margin-bottom: 1.5rem;
   color: #333;
@@ -86,16 +86,19 @@ body {
 .meal-price {
   font-weight: bold;
 } */
+
 /* .wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   height: calc(100vh - 4rem); /* 4 because the top navbar height is 4 */
   /* margin: 0 auto;
+  height: calc(100vh - 4rem); 4 because the top navbar height is 4
+  margin: 0 auto;
   padding: 0 1rem;
   width: 50%;
 }
-h1{
+h1 {
   margin: 10rem;
 }
 
@@ -179,9 +182,9 @@ h1{
 /* .signUp-form a:hover,
 .SignIn-form a:hover {
   text-decoration: underline;
-}
+} */
 
-.sideNav {
+/* .sideNav {
   position: fixed;
   top: 4rem;
   left: 0;
@@ -243,3 +246,135 @@ h1{
 .topNav img {
   height: 1.5rem;
 } */
+
+
+/* From Uiverse.io by PriyanshuGupta28 */ 
+/* .spinner {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+}
+
+.spinner div {
+  position: absolute;
+  width: 50%;
+  height: 150%;
+  background: #000000;
+  transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1%));
+  animation: spinner-fzua35 1s calc(var(--delay) * 1s) infinite ease;
+}
+
+.spinner div:nth-child(1) {
+  --delay: 0.1;
+  --rotation: 36;
+  --translation: 150;
+}
+
+.spinner div:nth-child(2) {
+  --delay: 0.2;
+  --rotation: 72;
+  --translation: 150;
+}
+
+.spinner div:nth-child(3) {
+  --delay: 0.3;
+  --rotation: 108;
+  --translation: 150;
+}
+
+.spinner div:nth-child(4) {
+  --delay: 0.4;
+  --rotation: 144;
+  --translation: 150;
+}
+
+.spinner div:nth-child(5) {
+  --delay: 0.5;
+  --rotation: 180;
+  --translation: 150;
+}
+
+.spinner div:nth-child(6) {
+  --delay: 0.6;
+  --rotation: 216;
+  --translation: 150;
+}
+
+.spinner div:nth-child(7) {
+  --delay: 0.7;
+  --rotation: 252;
+  --translation: 150;
+}
+
+.spinner div:nth-child(8) {
+  --delay: 0.8;
+  --rotation: 288;
+  --translation: 150;
+}
+
+.spinner div:nth-child(9) {
+  --delay: 0.9;
+  --rotation: 324;
+  --translation: 150;
+}
+
+.spinner div:nth-child(10) {
+  --delay: 1;
+  --rotation: 360;
+  --translation: 150;
+}
+
+@keyframes spinner-fzua35 {
+  0%, 10%, 20%, 30%, 50%, 60%, 70%, 80%, 90%, 100% {
+    transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1%));
+  }
+
+  50% {
+    transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1.5%));
+  }
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1.5rem;
+}
+
+.modal-buttons button {
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.modal-buttons button:first-child {
+  background-color: #ccc;
+}
+
+.modal-buttons button:last-child {
+  background-color: #3b82f6;
+  color: white;
+}
+ */

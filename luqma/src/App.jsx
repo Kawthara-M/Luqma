@@ -1,18 +1,18 @@
-import './App.css'
-import { useState, useEffect } from 'react'
-import Ckechout from './pages/Checkout'
-import Cart from './pages/Cart'
-import Order from './components/Order'
-import Home from './pages/Home'
-import Profile from './pages/Profile'
-import Navbar from './components/Navbar'
-import SignUp from './pages/SignUp'
-import SignIn from './pages/SignIn'
-import { Route, Routes } from 'react-router-dom'
-import Restaurant from './pages/Restaurant'
-import { CheckSession } from './services/Auth'
-import About from './pages/About'
-import OrderPage from './pages/OrderPage'
+import "./App.css"
+import { useState, useEffect } from "react"
+import Ckechout from "./pages/Checkout"
+import Cart from "./pages/Cart"
+import Order from "./components/Order"
+import Home from "./pages/Home"
+import Profile from "./pages/Profile"
+import Navbar from "./components/Navbar"
+import SignUp from "./pages/SignUp"
+import SignIn from "./pages/SignIn"
+import { Route, Routes } from "react-router-dom"
+import Restaurant from "./pages/Restaurant"
+import { CheckSession } from "./services/Auth"
+import About from "./pages/About"
+import OrderPage from "./pages/OrderPage"
 
 function App() {
   const [customer, setCustomer] = useState(null)
@@ -32,6 +32,7 @@ function App() {
     if (token) {
       checkToken()
     }
+    console.log(customer)
   }, [])
 
   return (

@@ -1,5 +1,7 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios'
+import { useEffect, useState } from "react"
+import axios from "axios"
+
+import '../../public/styleSheets/category.css'
 
 const Category = ({ onSelectCategory }) => {
   const [cuisines, setCuisines] = useState([])
@@ -11,12 +13,12 @@ const Category = ({ onSelectCategory }) => {
       setLoading(true)
       try {
         const response = await axios.get(
-          'http://localhost:3010/restaurants/cuisines'
+          "http://localhost:3010/restaurants/cuisines"
         )
         setCuisines(response.data)
         setError(null)
       } catch (err) {
-        setError('Failed to load cuisines')
+        setError("Failed to load cuisines")
       } finally {
         setLoading(false)
       }
@@ -25,21 +27,35 @@ const Category = ({ onSelectCategory }) => {
   }, [])
 
   return (
+    <div className="category-container">
+      {loading && <p className="category-loading">Loading categories...</p>}
+      {error && <p className="category-error">{error}</p>}
+
+      <div className="category-buttons">
     <div>
-      {loading && <p>Loading categories...</p>}
-      {error && <p>{error}</p>}
+      <h2>Categories</h2>
+
+//       {error && <p>{error}</p>}
       <div>
         {cuisines.map((cuisine) => (
-          <button key={cuisine} onClick={() => onSelectCategory(cuisine)}>
+          <button
+            key={cuisine}
+            onClick={() => onSelectCategory(cuisine)}
+            className="category-btn"
+          >
             {cuisine}
           </button>
         ))}
-        <button onClick={() => onSelectCategory(null)}>
-          show all restaurants
+        <button
+          onClick={() => onSelectCategory(null)}
+          className="category-btn show-all-btn"
+        >
+          Show All Restaurants
         </button>
       </div>
     </div>
+    </div>
+    </div>
   )
 }
-
 export default Category

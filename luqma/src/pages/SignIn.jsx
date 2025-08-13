@@ -1,24 +1,47 @@
-import { useState } from 'react'
-import { SignInCustomer } from '../services/Auth'
-import { useNavigate, Link } from 'react-router-dom'
+import { useState } from "react"
+import { SignInCustomer } from "../services/Auth"
+import { useNavigate, Link } from "react-router-dom"
+import validator from "validator"
+
+import '../../public/styleSheets/auth.css'
 
 const SignIn = ({ setCustomer }) => {
   let navigate = useNavigate()
-  const initialState = { email: '', passwordDigest: '' }
+  const initialState = { email: "", passwordDigest: "" }
+  const [errorMessage, setErrorMessage] = useState("")
+
 
   const [formValues, setFormValues] = useState(initialState)
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
   }
-
+  const validate = (value) => {
+    if (
+      validator.isStrongPassword(value, {
+        minLength: 8,
+        minLowercase: 1,
+        minUppercase: 1,
+        minNumbers: 1,
+        minSymbols: 1,
+      })
+    ) {
+      setErrorMessage("")
+    } else {
+      setErrorMessage("Invalid!")
+    }
+  }
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const payload = await SignInCustomer(formValues)
-    setFormValues(initialState)
-    setCustomer(payload)
+    if (errorMessage) {
+      return
+    } else {
+      const payload = await SignInCustomer(formValues)
+      setFormValues(initialState)
+      setCustomer(payload)
+    }
 
-    navigate('/Home')
+    navigate("/Home")
   }
 
   return (
@@ -42,23 +65,40 @@ const SignIn = ({ setCustomer }) => {
           <div>
             <label htmlFor="password">Password</label>
             <input
-              onChange={handleChange}
+              onChange={(e) => {
+                handleChange(e)
+              }}
+              onBlur={(e) => validate(e.target.value)}
               type="password"
               id="password"
-              placeholder="Password"
               name="passwordDigest"
               value={formValues.passwordDigest}
               required
             />
           </div>
-          <button disabled={!formValues.email || !formValues.passwordDigest}>
+          <button
+            disabled={
+              !formValues.email || !formValues.passwordDigest || errorMessage
+            }
+          >
             Sign In
           </button>
         </form>
-        <p style={{ marginTop: '1rem', textAlign: 'center' }}>
+        <p style={{ marginTop: "1rem", textAlign: "center" }}>
           Don’t have an account? <Link to="/auth/sign-up">Sign Up</Link>
         </p>
       </div>
+
+      {errorMessage === "" ? null : (
+        <span
+          style={{
+            fontWeight: "bold",
+            color: "red",
+          }}
+        >
+          {errorMessage}
+        </span>
+      )}
     </div>
   )
 }

@@ -13,6 +13,7 @@ export const SignInCustomer = async (data) => {
   try {
     const res = await Customer.post("/auth/sign-in", data)
     localStorage.setItem("token", res.data.token)
+    console.log("Sign in with customer: ", res.data.user)
 
     return res.data.user
   } catch (error) {
@@ -23,6 +24,7 @@ export const SignInCustomer = async (data) => {
 export const CheckSession = async () => {
   try {
     const res = await Customer.get("/auth/session")
+    console.log("Check session", res.data)
     // Checks if there is a token and if it is valid
     return res.data
   } catch (error) {
