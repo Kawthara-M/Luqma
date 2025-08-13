@@ -23,7 +23,7 @@ const Cart = () => {
       }
     }
     onMount()
-  }, [load])
+  }, [mealCarts])
 
   const handleEdit = async (orderId, mealId, mealQuantity) => {
     try {
