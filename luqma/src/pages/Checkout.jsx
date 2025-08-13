@@ -42,16 +42,28 @@ const Checkout = () => {
               </div>
             )
           })}
-          <p>total price: {location.state.mealCarts[0].totalPrice}</p>
+          <p>total price: {location.state.mealCarts[0].totalPrice.toFixed(2)}</p>
         </div>
       </div>
 
       <div>
         <h1>Payment Methods</h1>
-        <input type="radio" value="Cash" />
+        <div>
+        <input type="radio" value="Cash"/> 
+        <label>Cash</label>
+        </div>
+        <div>
         <input type="radio" value="Apple Pay" />
+        <label>Apple Pay</label>
+        </div>
+        <div>
         <input type="radio" value="Benifit Pay" />
-        <input type="radio" value="Cash" />
+        <label>Benefit Pay</label>
+        </div>
+        <div>
+        <input type="radio" value="Card" />
+        <label>Card</label>
+        </div>
       </div>
 
       <div>

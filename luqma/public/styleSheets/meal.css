@@ -7,7 +7,7 @@
   gap: 20px;
   max-width: 1500px;
   justify-content: center;
-  height:auto;
+  height: auto;
 }
 
 h2 {
@@ -20,7 +20,6 @@ h2 {
   font-size: 70px;
   padding: 15px;
 }
-
 
 .meal-card {
   background-color: white;
@@ -87,4 +86,11 @@ button:hover {
   align-items: center;
   flex-flow: column nowrap;
   text-align: center;
+}
+
+.restaurant-name {
+  color: #57712e;
+  font-weight: bold;
+  font-size: 80px;
+  margin-top: 85px;
 }

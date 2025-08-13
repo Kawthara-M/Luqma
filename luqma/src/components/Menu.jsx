@@ -114,7 +114,6 @@ const Menu = ({ meals, customer }) => {
 
   return (
     <>
-      <h2 className="menu-header">Menu</h2>
 
       <div className="menu-container">
         {console.log("meals",meals)}
