@@ -12,7 +12,7 @@ body {
   padding: 0;
   background: linear-gradient(135deg, #f8fdf8 0%, #fff5f0 100%);
 }
-.restaurant-list {
+/* .restaurant-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
@@ -42,19 +42,19 @@ body {
 .restaurant h3,
 .restaurant h4 {
   margin: 0.75rem 1rem;
-}
+} */
 
-.restaurant-page {
+/* .restaurant-page {
   max-width: 960px;
   margin: 0 auto;
   padding: 2rem 1rem;
-}
+} */
 
-.restaurant-name {
+/* .restaurant-name {
   font-size: 2rem;
   margin-bottom: 1.5rem;
   color: #333;
-}
+} */
 
 .menu-container {
   display: flex;
@@ -85,16 +85,17 @@ body {
 .meal-price {
   font-weight: bold;
 }
-.wrapper {
+
+/* .wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 4rem); /* 4 because the top navbar height is 4 */
+  height: calc(100vh - 4rem); 4 because the top navbar height is 4
   margin: 0 auto;
   padding: 0 1rem;
   width: 50%;
 }
-h1{
+h1 {
   margin: 10rem;
 }
 
@@ -178,9 +179,9 @@ h1{
 .signUp-form a:hover,
 .SignIn-form a:hover {
   text-decoration: underline;
-}
+} */
 
-.sideNav {
+/* .sideNav {
   position: fixed;
   top: 4rem;
   left: 0;
@@ -241,10 +242,11 @@ h1{
 
 .topNav img {
   height: 1.5rem;
-}
+} */
+
 
 /* From Uiverse.io by PriyanshuGupta28 */ 
-.spinner {
+/* .spinner {
   position: absolute;
   width: 9px;
   height: 9px;
@@ -372,4 +374,4 @@ h1{
   background-color: #3b82f6;
   color: white;
 }
-
+ */
