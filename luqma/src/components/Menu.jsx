@@ -31,32 +31,26 @@ const Menu = ({ meals, customer }) => {
   const handleAddToCart = async (meal, mealQuantity) => {
     try {
       const mealId = meal._id
-      if (!customer) {
-        alert("You must be signed in to add to cart.")
+     if (!customer) {
+        /*  alert("You must be signed in to add to cart.") */
 
-        return
+        return 
       }
 
       if (cart) {
-        const inCart = await axios.get(`http://localhost:3010/cart/`, {
+        const inCart = await axios.get(`https://luqma.onrender.com/cart/`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         })
-        // if cart is empty
         if (!inCart.length) {
-          // If there are meals
           if (inCart.data[0].meals.length > 0) {
-            console.log(
-              "There are meals! Proceeding to check if food is from the same res"
-            )
-            // Grab restaurantId of cart
+  
             const restaurantIdFromCart = inCart.data[0].restaurant._id
 
             const restaurantIdFromMeal = meal.restaurant
-            // Check if meal from restaurant is the same as restaurant in cart
+
             if (restaurantIdFromCart === restaurantIdFromMeal) {
-              console.log("Same restaurant!")
               const response = await axios.put(
                 `http://localhost:3010/cart/${cart._id}`,
                 { mealId, quantity: mealQuantity },
@@ -66,14 +60,11 @@ const Menu = ({ meals, customer }) => {
                   },
                 }
               )
-              // console.log(response.data)
               setCart(response.data)
             } else {
-              console.log("you cant add meal from different restaurant")
               return
             }
           } else {
-            // No meals ): just add it
 
             const response = await axios.put(
               `http://localhost:3010/cart/${cart._id}`,
@@ -84,11 +75,9 @@ const Menu = ({ meals, customer }) => {
                 },
               }
             )
-            // console.log(response.data)
             setCart(response.data)
           }
         } else {
-          console.log("you cant add meal from different restaurant")
           return
         }
       } else {
@@ -103,7 +92,6 @@ const Menu = ({ meals, customer }) => {
             },
           }
         )
-        console.log(response.data)
 
         setCart(response.data)
       }
@@ -114,13 +102,12 @@ const Menu = ({ meals, customer }) => {
 
   return (
     <>
-
       <div className="menu-container">
-        {console.log("meals",meals)}
         {meals.length > 0 ? (
           meals.map((meal) => (
             <Meal
               key={meal._id}
+              customer={customer}
               meal={meal}
               handleAddtoCart={(id, qty) => handleAddToCart(meal, qty)}
             />

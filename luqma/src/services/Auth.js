@@ -3,9 +3,14 @@ import Customer from "./api"
 export const SignUpCustomer = async (data) => {
   try {
     const res = await Customer.post("/auth/sign-up", data)
+    
     return res.data
   } catch (error) {
-    throw error
+    const message =
+      error.response?.data?.msg ||
+      error.response?.data?.error ||
+      "Sign-up failed."
+    throw new Error(message)
   }
 }
 
@@ -13,19 +18,19 @@ export const SignInCustomer = async (data) => {
   try {
     const res = await Customer.post("/auth/sign-in", data)
     localStorage.setItem("token", res.data.token)
-    console.log("Sign in with customer: ", res.data.user)
-
     return res.data.user
   } catch (error) {
-    throw error
+    const message =
+      error.response?.data?.msg ||
+      error.response?.data?.error ||
+      "Invalid Credentials!"
+    throw new Error(message)
   }
 }
-// if customer still has a valid session
+
 export const CheckSession = async () => {
   try {
     const res = await Customer.get("/auth/session")
-    console.log("Check session", res.data)
-    // Checks if there is a token and if it is valid
     return res.data
   } catch (error) {
     throw error

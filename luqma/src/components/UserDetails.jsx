@@ -26,7 +26,6 @@ const UserDetails = ({ customerId }) => {
   let navigate = useNavigate()
 
   useEffect(() => {
-    console.log('customer id' + customerId)
     if (!customerId) return
 
     Customer.get(`/profile/${customerId}`)
@@ -85,7 +84,7 @@ const UserDetails = ({ customerId }) => {
     if (!confirmDelete) return
     try {
       const res = await axios.delete(
-        `http://localhost:3010/auth/${customerId}`,
+        `https://luqma.onrender.com/auth/${customerId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -102,6 +101,8 @@ const UserDetails = ({ customerId }) => {
   if (error) return <p>Error: {error}</p>
 
   return (
+    <>
+    <h2>Profile</h2>
     <div className="user-details-container">
       {editing ? (
         <form
@@ -110,7 +111,6 @@ const UserDetails = ({ customerId }) => {
             handleSave()
           }}
         >
-          <h2>Edit User Details</h2>
 
           <div className="name">
             <label className="name-lable">Name:</label>
@@ -147,7 +147,7 @@ const UserDetails = ({ customerId }) => {
         </form>
       ) : (
         <>
-          <h2>User Details</h2>
+          
           <p className="name">
             Name: <span>{user.name}</span>
           </p>
@@ -210,7 +210,7 @@ const UserDetails = ({ customerId }) => {
           </div>
         </>
       )}
-    </div>
+    </div></>
   )
 }
 export default UserDetails

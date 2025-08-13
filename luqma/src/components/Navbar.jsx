@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import cartIcon from "../assets/cart.png"
 import "../../public/styleSheets/navBar.css"
 
@@ -26,9 +26,15 @@ const Navbar = ({ handleLogOut, customer }) => {
         </div>
 
         <div className="topNav-right">
-          <Link to="/cart" onClick={closeMenu}>
-            <img src={cartIcon} alt="cart icon" className="cart-icon" />
-          </Link>
+          {customer ? (
+            <Link to="/cart" onClick={closeMenu}>
+              <img src={cartIcon} alt="cart icon" className="cart-icon" />
+            </Link>
+          ) : (
+            <span className="cart-icon-disabled" title="Sign in to view cart">
+              <img src={cartIcon} alt="cart icon" className="cart-icon" />
+            </span>
+          )}
         </div>
       </nav>
 
@@ -39,7 +45,6 @@ const Navbar = ({ handleLogOut, customer }) => {
         <Link to="/about" onClick={closeMenu}>
           About Us
         </Link>
-{console.log(customer)}
         {customer ? (
           <>
             <Link to="/orders" onClick={closeMenu}>

@@ -8,10 +8,6 @@ const Checkout = () => {
   const [order, setOrder] = useState(null)
 
   const navigate = useNavigate()
-  useEffect(() => {
-    /* console.log("does state show?" + location.state?.mealCarts[0]) */
-    //setOrder(location.state?.mealCarts[0])
-  }, [])
 
   const handleSubmitOrder = async (e) => {
     e.preventDefault()

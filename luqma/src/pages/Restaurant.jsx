@@ -1,20 +1,17 @@
-import { Link } from "react-router-dom"
-import { useParams } from "react-router-dom"
-import { useState, useEffect } from "react"
-import axios from "axios"
-import Menu from "../components/Menu"
+import { useParams } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import Menu from '../components/Menu'
 import '../../public/styleSheets/meal.css'
 
-// import MenuBar from "./MenuBar"
 
-const Restaurant = ({customer}) => {
-
-  const [restaurant, setRestaurant] = useState("")
+const Restaurant = ({ customer }) => {
+  const [restaurant, setRestaurant] = useState('')
   const [meals, setMeals] = useState([])
   let { id } = useParams()
 
   useEffect(() => {
-    console.log("customer from restaurant page is:"+customer)
+
     const getRestaurant = async (req, res) => {
       const response = await axios.get(
         `http://localhost:3010/restaurants/${id}`
@@ -31,8 +28,12 @@ const Restaurant = ({customer}) => {
   return (
     <>
       <div className="restaurant-page">
-        <h2 className="restaurant-name">{restaurant.name}</h2>
-        {meals.length > 0 ? <Menu meals={meals} customer={customer} /> : <p>No meals available.</p>}
+        <h2 className="restaurant-name-menu">{restaurant.name}</h2>
+        {meals.length > 0 ? (
+          <Menu meals={meals} customer={customer} />
+        ) : (
+          <p>No meals available.</p>
+        )}
       </div>
     </>
   )

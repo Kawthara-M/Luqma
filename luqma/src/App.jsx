@@ -2,7 +2,7 @@ import "./App.css"
 import { useState, useEffect } from "react"
 import Ckechout from "./pages/Checkout"
 import Cart from "./pages/Cart"
-import Order from "./components/Order"
+// import Order from "./components/Order"
 import Home from "./pages/Home"
 import Profile from "./pages/Profile"
 import Navbar from "./components/Navbar"
@@ -32,7 +32,6 @@ function App() {
     if (token) {
       checkToken()
     }
-    console.log(customer)
   }, [])
 
   return (

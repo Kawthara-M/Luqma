@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: center;
   gap: 12px;
+  height:auto;
 }
 
 .input {
@@ -15,6 +16,7 @@
   color: #57712e;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(87, 113, 46, 0.1);
+  width: 100%;
 }
 
 .input::placeholder {

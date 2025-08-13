@@ -24,6 +24,9 @@
 
 .category-btn {
   padding: 8px 22px;
+    width:9rem;
+
+  margin: 10px;
   border: none;
   border-radius: 50px;
   background-color: #a3be8c;

@@ -1,12 +1,53 @@
+.wrap-cart {
+  margin-top: 10rem;
+  padding-bottom: 8rem;
+}
+
 .cart-container {
   display: flex;
   justify-content: center;
-  margin:15px ;
+  margin: 15px;
 }
 
-h2{
-  margin-top: 100px;
-  font-size: 2.5rem;
+.checkout-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 2rem;
+  background: white;
+  border-top: 2px solid #ccc;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+.total-price {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.8rem;
+}
+
+.total-price h2,
+.total-price p {
+  margin: 0;
+}
+
+.checkout-btn {
+  padding: 8px 14px;
+  background: #57712e;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: flex-end;
+  background: #57712e;
+  color: white;
 }
 
 .cart-item {
@@ -23,10 +64,10 @@ h2{
 }
 
 .cart-item img {
-  width: 170px;
-  height: 170px;
+  width: 10rem;
+  height: 11rem;
   object-fit: cover;
-  border-right: 2px solid #57712e;
+  border: 2px solid #eceaea;
   padding-right: 10px;
 }
 
@@ -44,49 +85,49 @@ h2{
   color: #57712e;
 }
 
-.cart-right input[type='number'] {
+input[type="number"] {
   width: 70px;
-  padding: 5px;
-  margin: 8px 0;
+  padding: 0.4rem;
+  margin: 10px 0;
   border: 1px solid #57712e;
   border-radius: 4px;
   text-align: center;
+  height:2.4rem;
 }
 
 .cart-buttons {
   display: flex;
-  gap: 10px;
-  margin-top: 8px;
+  margin: 10px 2px;
 }
 
 .cart-buttons button {
-  padding: 6px 12px;
+  padding: 0.4rem 0.6rem;
   border: none;
   background: #57712e;
   color: white;
   border-radius: 4px;
   font-weight: bold;
+  width:4rem;
+  height:2.4rem;
 }
 
 .delete-button {
   background-color: red;
-  padding: 6px 12px;
   border: none;
   color: white;
   border-radius: 4px;
   font-weight: bold;
   display: flex;
   gap: 10px;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
-.checkout-btn {
-  align-self: flex-end;
-  padding: 8px 14px;
-  background: #57712e;
-  color: white;
-  font-weight: bold;
-  font-size: 25px;
+.empty-cart {
+  margin-top: 20rem;
+  font-size: 2.5rem;
+  color: #606656;
 }
-
-
+.add-btn {
+  margin-top: 0.1rem;
+  width: 6rem;
+}
