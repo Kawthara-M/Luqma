@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react"
-import axios from "axios"
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 import '../../public/styleSheets/category.css'
 
@@ -14,11 +14,12 @@ const Category = ({ onSelectCategory }) => {
       try {
         const response = await axios.get(
           "https://luqma.onrender.com//restaurants/cuisines"
+          'http://localhost:3010/restaurants/cuisines'
         )
         setCuisines(response.data)
         setError(null)
       } catch (err) {
-        setError("Failed to load cuisines")
+        setError('Failed to load cuisines')
       } finally {
         setLoading(false)
       }
@@ -34,7 +35,6 @@ const Category = ({ onSelectCategory }) => {
       <div className="category-buttons">
     <div>
 
- {error && <p>{error}</p>}
       <div>
         {cuisines.map((cuisine) => (
           <button

@@ -38,7 +38,7 @@
   width: 28px;
   height: 28px;
   transition: transform 0.2s ease;
-  border:none;
+  border: none;
 }
 
 .topNav-right .cart-icon:hover {

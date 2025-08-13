@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 import axios from "axios"
 import Menu from "../components/Menu"
+import '../../public/styleSheets/meal.css'
+
 // import MenuBar from "./MenuBar"
 
 const Restaurant = ({customer}) => {

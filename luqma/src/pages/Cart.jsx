@@ -2,6 +2,9 @@ import axios from "axios"
 import { use, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import MealCart from "../components/MealCart"
+import '../../public/styleSheets/cart.css'
+
+
 
 const Cart = () => {
   let navigate = useNavigate()
@@ -67,7 +70,6 @@ const Cart = () => {
 
   return (
     <div>
-      <h2>My Order</h2>
       {mealCarts.map((mealCart) => (
         
         <MealCart
@@ -79,7 +81,7 @@ const Cart = () => {
         />
       ))}
       <h2>Total Price: {mealCarts.length>0 ? mealCarts[0].totalPrice: 0} BD</h2>
-       <button onClick={() => handleCheckout()}>
+      <button className="checkout-btn" onClick={() => handleCheckout()}>
         Checkout
       </button>
     </div>

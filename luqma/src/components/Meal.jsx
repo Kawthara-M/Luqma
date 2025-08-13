@@ -15,7 +15,7 @@ return (
     {console.log(meal)}
       <div className="meal-container">
         <div className="meal-card">
-          <img src={meal.image} alt="" />
+          <img src={meal.image} alt={meal.name} />
           <h4>{meal.name}</h4>
           <p className="meal-discription">{meal.description}</p>
           <p className="meal-price">BD {meal.price.toFixed(2)}</p>
