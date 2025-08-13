@@ -3,13 +3,12 @@ import { SignInCustomer } from "../services/Auth"
 import { useNavigate, Link } from "react-router-dom"
 import validator from "validator"
 
-import '../../public/styleSheets/auth.css'
+import "../../public/styleSheets/auth.css"
 
 const SignIn = ({ setCustomer }) => {
   let navigate = useNavigate()
   const initialState = { email: "", passwordDigest: "" }
   const [errorMessage, setErrorMessage] = useState("")
-
 
   const [formValues, setFormValues] = useState(initialState)
 
@@ -47,6 +46,8 @@ const SignIn = ({ setCustomer }) => {
   return (
     <div className="wrapper">
       <div className="SignIn-form">
+        <h2>Sign In</h2>
+
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="email">Email</label>
@@ -74,7 +75,21 @@ const SignIn = ({ setCustomer }) => {
               name="passwordDigest"
               value={formValues.passwordDigest}
               required
+              style={{
+                marginBottom: "0",
+              }}
             />
+            {errorMessage === "" ? null : (
+              <span
+                style={{
+                  fontSize: ".8rem",
+                  color: "red",
+                  marginTop: "0",
+                }}
+              >
+                {errorMessage}
+              </span>
+            )}
           </div>
           <button
             disabled={
@@ -88,17 +103,6 @@ const SignIn = ({ setCustomer }) => {
           Don’t have an account? <Link to="/auth/sign-up">Sign Up</Link>
         </p>
       </div>
-
-      {errorMessage === "" ? null : (
-        <span
-          style={{
-            fontWeight: "bold",
-            color: "red",
-          }}
-        >
-          {errorMessage}
-        </span>
-      )}
     </div>
   )
 }

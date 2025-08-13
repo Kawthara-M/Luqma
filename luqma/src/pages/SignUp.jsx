@@ -1,8 +1,8 @@
-import { useState } from 'react'
-import { SignUpCustomer } from '../services/Auth'
-import { useNavigate, Link } from 'react-router-dom'
+import { useState } from "react"
+import { SignUpCustomer } from "../services/Auth"
+import { useNavigate, Link } from "react-router-dom"
 
-import '../../public/styleSheets/auth.css'
+import "../../public/styleSheets/auth.css"
 
 import validator from "validator"
 
@@ -11,11 +11,11 @@ const SignUp = () => {
   const [errorMessage, setErrorMessage] = useState("")
 
   const initialState = {
-    name: '',
-    email: '',
-    phone: '',
-    password: '',
-    confirmPassword: ''
+    name: "",
+    email: "",
+    phone: "",
+    password: "",
+    confirmPassword: "",
   }
 
   const [formValues, setFormValues] = useState(initialState)
@@ -35,7 +35,9 @@ const SignUp = () => {
     ) {
       setErrorMessage("")
     } else {
-      setErrorMessage("Weak Password! Have a mix of capital and lower letters, digits, and unique symbols!")
+      setErrorMessage(
+        "Weak Password! Have a mix of capital and lower letters, digits, and unique symbols!"
+      )
     }
   }
 
@@ -55,6 +57,7 @@ const SignUp = () => {
 
   return (
     <div className="wrapper wrapper-up">
+      <h2 className="form-title">Sign Up</h2>
       <div className="signUp-form">
         <form onSubmit={handleSubmit}>
           <label htmlFor="name">Your Name</label>
@@ -105,7 +108,23 @@ const SignUp = () => {
             value={formValues.password}
             required
             autoComplete="off"
+              style={{
+
+                marginBottom:".5rem"
+              }}
           />
+          {errorMessage === "" ? null : (
+            <span
+              style={{
+                fontSize: ".8rem",
+                color: "red",
+                marginTop:"0",
+                marginBottom:".5rem"
+              }}
+            >
+              {errorMessage}
+            </span>
+          )}
           <br />
           <label htmlFor="confirmPassword">Comfirm Password</label>
           <input
@@ -136,16 +155,6 @@ const SignUp = () => {
         <p style={{ marginTop: "1rem", textAlign: "center" }}>
           Already have an account? <Link to="/auth/sign-in">Sign In</Link>
         </p>
-      {errorMessage === "" ? null : (
-        <span
-          style={{
-            fontSize: ".8rem",
-            color: "red",
-          }}
-        >
-          {errorMessage}
-        </span>
-      )}
       </div>
     </div>
   )

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import cartIcon from "../assets/cart.png"
 import "../../public/styleSheets/navBar.css"
 
@@ -39,7 +39,6 @@ const Navbar = ({ handleLogOut, customer }) => {
         <Link to="/about" onClick={closeMenu}>
           About Us
         </Link>
-{console.log(customer)}
         {customer ? (
           <>
             <Link to="/orders" onClick={closeMenu}>
