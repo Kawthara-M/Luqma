@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { SignInCustomer } from "../services/Auth"
 import { useNavigate, Link } from "react-router-dom"
 
@@ -27,12 +27,9 @@ const SignIn = ({ setCustomer }) => {
         navigate("/Home")
       }
     } catch (error) {
-      // Catch and display server error messages
-      console.log(error.message)
-         setErrorMessage(error.message)
+      setErrorMessage(error.message)
     }
   }
-
 
   return (
     <div className="wrapper">

@@ -1,25 +1,22 @@
 import axios from "axios"
-import { use, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import MealCart from "../components/MealCart"
-import '../../public/styleSheets/cart.css'
-
-
+import "../../public/styleSheets/cart.css"
 
 const Cart = () => {
   let navigate = useNavigate()
   const [mealCarts, setMealCarts] = useState([])
-  const [load, setLoad]=useState(false)
+  const [load, setLoad] = useState(false)
 
   useEffect(() => {
     const onMount = async () => {
       try {
-        const response = await axios.get(`https://luqma.onrender.com/cart`, {
+        const response = await axios.get(`http://localhost:3010/cart`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         })
-        console.log("all meal carts: ", response.data)
         setMealCarts(response.data)
       } catch (err) {
         console.log("Failed to add to cart")
@@ -31,7 +28,7 @@ const Cart = () => {
   const handleEdit = async (orderId, mealId, mealQuantity) => {
     try {
       const response = await axios.put(
-        `https://luqma.onrender.com/cart/${orderId}`,
+        `http://localhost:3010/cart/${orderId}`,
         { mealId, quantity: mealQuantity },
         {
           headers: {
@@ -40,7 +37,6 @@ const Cart = () => {
         }
       )
       setLoad(!load)
-   /*    setMealCarts(Array.isArray(response.data) ? response.data : [response.data]) */
     } catch (err) {
       console.log("Failed to edit meal" + err)
     }
@@ -49,7 +45,7 @@ const Cart = () => {
   const handleDelete = async (orderId, mealId) => {
     try {
       const response = await axios.delete(
-        `https://luqma.onrender.com/cart/${orderId}/meal/${mealId}`,
+        `http://localhost:3010/cart/${orderId}/meal/${mealId}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -58,33 +54,56 @@ const Cart = () => {
       )
 
       setMealCarts(response.data)
+      setLoad(!load)
     } catch (err) {
       console.log("Failed to delete meal:" + err)
     }
   }
 
   const handleCheckout = () => {
-    console.log(mealCarts)
-    navigate("/Checkout", {state: {mealCarts}})
+    navigate("/Checkout", { state: { mealCarts } })
   }
 
   return (
-    <div>
-      {mealCarts.map((mealCart) => (
-        
-        <MealCart
-          key={mealCart.id}
-          mealCart={mealCart}
-          handleEdit={handleEdit}
-          handleDelete={handleDelete}
-          // handleCheckout={handleCheckout}
-        />
-      ))}
-      <h2>Total Price: {mealCarts.length>0 ? mealCarts[0].totalPrice: 0} BD</h2>
-      <button className="checkout-btn" onClick={() => handleCheckout()}>
-        Checkout
-      </button>
-    </div>
+    <>
+      <div>
+        {mealCarts.map((mealCart) => (
+          <MealCart
+            key={mealCart.id}
+            mealCart={mealCart}
+            handleEdit={handleEdit}
+            handleDelete={handleDelete}
+          />
+        ))}
+        {mealCarts.length >0  ? (
+          mealCarts[0].meals.length >0 ? (
+            <>
+              <h2>
+                Total Price:
+                {mealCarts[0].totalPrice
+                  ? mealCarts[0].totalPrice
+                  : 0}{" "}
+                BD
+              </h2>
+              <button className="checkout-btn" onClick={handleCheckout}>
+                Checkout
+              </button>
+            </>
+          ) : (
+            <>
+            <h1 className="empty-cart">Empty Cart!</h1>
+            <button className="add-btn" onClick={()=>{
+              navigate("/Home")
+            }}>
+                Add
+              </button>
+            </>
+          )
+        ) : (
+          <h1 className="empty-cart">Empty Cart!</h1>
+        )}
+      </div>
+    </>
   )
 }
 export default Cart

@@ -2,7 +2,7 @@ import '../../public/styleSheets/cart.css'
 import { useState } from 'react'
 
 const MealCart = ({ mealCart, handleEdit, handleDelete, handleCheckout }) => {
-  //  const [quantity, setQuantity] = useState(null)
+
   const [mealsQuantity, setMealsQuantity] = useState(() => {
     const initialState = {}
     mealCart.meals.forEach((meal) => {
@@ -17,13 +17,10 @@ const MealCart = ({ mealCart, handleEdit, handleDelete, handleCheckout }) => {
       [mealId]: value
     }))
   }
-  /*   const updateQuantity = (e) => {
-    const newValue = parseInt(e.target.value)
-    setQuantity(newValue)
-  } */
+
   return (
     <div>
-      <h2>My Cart</h2>
+
       {mealCart.meals
         ? mealCart.meals.map((oneMeal) => (
             <>

@@ -88,5 +88,14 @@ h2{
   font-weight: bold;
   font-size: 25px;
 }
+.empty-cart {
+  margin-top: 20rem;
+  font-size: 2.5rem;
+  color:#606656;
+}
+.add-btn{
+  margin-top: 1rem;
+  width:6rem;
+}
 
 
