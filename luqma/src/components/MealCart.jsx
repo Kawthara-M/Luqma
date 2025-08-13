@@ -23,7 +23,7 @@ const MealCart = ({ mealCart, handleEdit, handleDelete, handleCheckout }) => {
   } */
   return (
     <div>
-      <h2>My Cart</h2>
+      <h2 className="meal-cart">My Cart</h2>
       {mealCart.meals
         ? mealCart.meals.map((oneMeal) => (
             <>
@@ -58,14 +58,13 @@ const MealCart = ({ mealCart, handleEdit, handleDelete, handleCheckout }) => {
                     >
                       Edit
                     </button>
-                    </div>
-                    <button className='delete-button'
-                      onClick={() =>
-                        handleDelete(mealCart._id, oneMeal.meal._id)
-                      }
-                    >
-                      Delete
-                    </button>
+                  </div>
+                  <button
+                    className="delete-button"
+                    onClick={() => handleDelete(mealCart._id, oneMeal.meal._id)}
+                  >
+                    Delete
+                  </button>
                 </div>
               </div>
             </>
