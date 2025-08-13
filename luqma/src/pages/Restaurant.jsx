@@ -15,11 +15,11 @@ const Restaurant = ({customer}) => {
     console.log("customer from restaurant page is:"+customer)
     const getRestaurant = async (req, res) => {
       const response = await axios.get(
-        `http://localhost:3010/restaurants/${id}`
+        `https://luqma.onrender.com/restaurants/${id}`
       )
       setRestaurant(response.data)
       const mealsResponse = await axios.get(
-        `http://localhost:3010/restaurants/${id}/menu`
+        `https://luqma.onrender.com/restaurants/${id}/menu`
       )
 
       setMeals(mealsResponse.data)

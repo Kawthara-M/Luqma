@@ -13,7 +13,7 @@ const Category = ({ onSelectCategory }) => {
       setLoading(true)
       try {
         const response = await axios.get(
-          "http://localhost:3010/restaurants/cuisines"
+          "https://luqma.onrender.com//restaurants/cuisines"
         )
         setCuisines(response.data)
         setError(null)

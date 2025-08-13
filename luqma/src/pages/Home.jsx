@@ -21,9 +21,9 @@ const Home = () => {
       setLoading(true)
       setError(null)
       try {
-        let url = 'http://localhost:3010/restaurants'
+        let url = 'https://luqma.onrender.com/restaurants'
         if (selectedCategory) {
-          url = `http://localhost:3010/restaurants/cuisine/${selectedCategory}`
+          url = `https://luqma.onrender.com/restaurants/cuisine/${selectedCategory}`
         }
         const response = await axios.get(url)
         setRestaurants(response.data)
@@ -44,7 +44,7 @@ const Home = () => {
     setLoading(true)
     setError(null)
     try {
-      const response = await axios.post(`http://localhost:3010/search`, {
+      const response = await axios.post(`https://luqma.onrender.com/search`, {
         search: searchQuery,
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       })

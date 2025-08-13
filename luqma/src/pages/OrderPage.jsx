@@ -12,7 +12,7 @@ const OrderPage = () => {
   const getCartOrders = async () => {
     setLoadingCart(true)
     try {
-      const response = await axios.get('http://localhost:3010/cart', {
+      const response = await axios.get('https://luqma.onrender.com/cart', {
         headers: { Authorization: `Bearer ${token}` }
       })
       setCartOrders(
@@ -29,7 +29,7 @@ const OrderPage = () => {
   const getPastOrders = async () => {
     setLoadingPast(true)
     try {
-      const response = await axios.get('http://localhost:3010/orders', {
+      const response = await axios.get('https://luqma.onrender.com/orders', {
         headers: { Authorization: `Bearer ${token}` }
       })
       setPastOrders(response.data || [])

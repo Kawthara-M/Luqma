@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+/* import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 const OrdersPage = () => {
@@ -39,7 +39,7 @@ const OrdersPage = () => {
         cartOrders.map((order) => (
           <div key={order._id} className="order-card">
             <h3>{order.restaurant?.name}</h3>
-            {/* <p>Status: {order.status}</p> */}
+            {/* <p>Status: {order.status}</p> 
             <p>Delivery Man: {order.deliveryMan?.name}</p>
             <p>Phone: {order.deliveryMan?.phone}</p>
             <p>Email: {order.deliveryMan?.email}</p>
@@ -73,3 +73,4 @@ const OrdersPage = () => {
 }
 
 export default OrdersPage
+ */

@@ -85,7 +85,7 @@ const UserDetails = ({ customerId }) => {
     if (!confirmDelete) return
     try {
       const res = await axios.delete(
-        `http://localhost:3010/auth/${customerId}`,
+        `https://luqma.onrender.com/auth/${customerId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`
