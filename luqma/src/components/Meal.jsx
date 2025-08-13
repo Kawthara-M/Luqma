@@ -10,8 +10,9 @@ const Meal = ({ meal, handleAddtoCart }) => {
     setQuantity(newValue)
   }
 
- (
+return (
     <>
+    {console.log(meal)}
       <div className="meal-container">
         <div className="meal-card">
           <img src={meal.image} alt="" />

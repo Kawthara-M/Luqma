@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  margin-top: 5rem;
 }
 
 .SignIn-form,
@@ -13,8 +14,11 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 400px;
+  height: 500px;
+  overflow-y: auto;
   text-align: center;
 }
+
 
 .SignIn-form h2,
 .signUp-form h2 {
