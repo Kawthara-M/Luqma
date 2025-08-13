@@ -12,7 +12,7 @@ Luqma, a matchmaking platform connecting customers, resturants, and delivery in 
 <br>
 
 <div align="center">
-  <img src="./assets/logo.png" alt="Luqma Logo">
+  <img src="./assets/luqma.png" alt="Luqma Logo">
 </div>
 
 ## 🚀 Getting Started
@@ -25,7 +25,7 @@ A first step for Luqma project to see the light was planning, a critical stage t
 
 - **Component Hierarchy Diagram**: the cornerstone of building the frontend, designed with Excalidraw. <br>
 
-  <img src="./assets/diagram.png" height="200px" alt="componant hierarchy">
+  <img src="./assets/diagramLuqma.png" height="200px" alt="componant hierarchy">
 
 - **Collaborative Board**: A board shared among team memebers to assign tasks and track prograss.
   | [Notion](https://stellar-ground-30c.notion.site/Tasks-24765872718a80178886d12cdcce7fa5) |
