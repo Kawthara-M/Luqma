@@ -1,3 +1,5 @@
+import '../../public/styleSheets/about.css'
+
 const About = () => {
   return (
     <>

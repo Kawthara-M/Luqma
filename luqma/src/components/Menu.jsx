@@ -44,7 +44,7 @@ const Menu = ({ meals, customer }) => {
             },
           }
         )
-
+        console.log(response.data)
         setCart(response.data)
       } else {
         const response = await axios.post(
@@ -58,6 +58,8 @@ const Menu = ({ meals, customer }) => {
             },
           }
         )
+        console.log(response.data)
+
         setCart(response.data)
       }
     } catch (error) {
@@ -68,6 +70,7 @@ const Menu = ({ meals, customer }) => {
   return (
     <div className="menu-container">
       {meals.length > 0 ? (
+        
         meals.map((meal) => (
           <Meal
             key={meal._id}

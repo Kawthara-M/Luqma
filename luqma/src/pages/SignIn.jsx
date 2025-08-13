@@ -3,10 +3,13 @@ import { SignInCustomer } from "../services/Auth"
 import { useNavigate, Link } from "react-router-dom"
 import validator from "validator"
 
+import '../../public/styleSheets/auth.css'
+
 const SignIn = ({ setCustomer }) => {
   let navigate = useNavigate()
   const initialState = { email: "", passwordDigest: "" }
   const [errorMessage, setErrorMessage] = useState("")
+
 
   const [formValues, setFormValues] = useState(initialState)
 

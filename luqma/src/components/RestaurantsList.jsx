@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import Restaurant from './Restuatant'
+import '../../public/styleSheets/restaurantsList.css'
 
 const RestaurantsList = ({ restaurants }) => {
   if (!restaurants) return <p>No restaurants</p>

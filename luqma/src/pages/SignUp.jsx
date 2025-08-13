@@ -1,6 +1,9 @@
-import { useState } from "react"
-import { SignUpCustomer } from "../services/Auth"
-import { useNavigate, Link } from "react-router-dom"
+import { useState } from 'react'
+import { SignUpCustomer } from '../services/Auth'
+import { useNavigate, Link } from 'react-router-dom'
+
+import '../../public/styleSheets/auth.css'
+
 import validator from "validator"
 
 const SignUp = () => {
@@ -8,11 +11,11 @@ const SignUp = () => {
   const [errorMessage, setErrorMessage] = useState("")
 
   const initialState = {
-    name: "",
-    email: "",
-    phone: "",
-    password: "",
-    confirmPassword: "",
+    name: '',
+    email: '',
+    phone: '',
+    password: '',
+    confirmPassword: ''
   }
 
   const [formValues, setFormValues] = useState(initialState)
@@ -38,13 +41,13 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+
     if (errorMessage) {
       return
     } else {
       console.log(formValues)
       const payload = await SignUpCustomer(formValues)
       setFormValues(initialState)
-      setCustomer(payload)
     }
 
     navigate("/sign-in")
@@ -129,6 +132,7 @@ const SignUp = () => {
             Sign Up
           </button>
         </form>
+
         <p style={{ marginTop: "1rem", textAlign: "center" }}>
           Already have an account? <Link to="/auth/sign-in">Sign In</Link>
         </p>

@@ -1,0 +1,82 @@
+.user-details-container {
+  max-width: 450px;
+  margin: 50px auto;
+  margin-top: 120px;
+  background-color: #f8f9fa;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.user-details-container h2 {
+  margin-bottom: 20px;
+  color: #57712e;
+  font-weight: 800;
+  font-size: 28px;
+}
+
+.user-details-container label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.user-details-container input {
+  width: 100%;
+  padding: 8px 12px;
+  margin-bottom: 15px;
+  border: 1px solid #a4c07d;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.user-details-container span {
+  font-weight: bold;
+  color: #4e5b3d;
+}
+
+.user-details-container .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.user-details-container button {
+  padding: 6px 14px;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #4a7c59;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.user-details-container button:hover {
+  background-color: #3b6347;
+}
+
+.user-details-container .delete-btn {
+  background-color: #e74c3c;
+  margin-top: 15px;
+}
+
+.user-details-container .delete-btn:hover {
+  background-color: #c0392b;
+}
+
+.user-details-container .updatePass-btn {
+  background-color: #4a7c59;
+}
+
+.user-details-container .updatePass-btn:hover {
+  background-color: #3b6347;
+}
+
+.user-details-container .edit-btn,
+.user-details-container .changePass-btn {
+  display: inline-block;
+  margin: 8px;
+}
