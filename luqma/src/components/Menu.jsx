@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import Meal from "./Meal"
 import axios from "axios"
-import '../../public/styleSheets/meal.css'
+import "../../public/styleSheets/meal.css"
 
 const Menu = ({ meals, customer }) => {
   const [cart, setCart] = useState(null)
@@ -32,7 +32,8 @@ const Menu = ({ meals, customer }) => {
     try {
       const mealId = meal._id
       if (!customer) {
-        setShowLoginCard(true)
+        alert("You must be signed in to add to cart.")
+
         return
       }
 
@@ -71,7 +72,6 @@ const Menu = ({ meals, customer }) => {
               console.log("you cant add meal from different restaurant")
               return
             }
-
           } else {
             // No meals ): just add it
 
@@ -112,27 +112,29 @@ const Menu = ({ meals, customer }) => {
     }
   }
 
-  return (<>
-            <h2 className='menu-header'>Menu</h2>
+  return (
+    <>
+      <h2 className="menu-header">Menu</h2>
 
-    <div className="menu-container">
-      {meals.length > 0 ? (
-        meals.map((meal) => (
-          <Meal
-            key={meal._id}
-            meal={meal}
-            handleAddtoCart={(id, qty) => handleAddToCart(meal, qty)}
-          />
-        ))
-      ) : (
-        <div className="loader">
-          <div className="circle"></div>
-          <div className="circle"></div>
-          <div className="circle"></div>
-          <div className="circle"></div>
-        </div>
-      )}
-    </div>
+      <div className="menu-container">
+        {console.log("meals",meals)}
+        {meals.length > 0 ? (
+          meals.map((meal) => (
+            <Meal
+              key={meal._id}
+              meal={meal}
+              handleAddtoCart={(id, qty) => handleAddToCart(meal, qty)}
+            />
+          ))
+        ) : (
+          <div className="loader">
+            <div className="circle"></div>
+            <div className="circle"></div>
+            <div className="circle"></div>
+            <div className="circle"></div>
+          </div>
+        )}
+      </div>
     </>
   )
 }

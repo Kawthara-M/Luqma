@@ -1,5 +1,6 @@
 import '../../public/styleSheets/meal.css'
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react"
+
 
 const Meal = ({ meal, handleAddtoCart }) => {
   const [quantity, setQuantity] = useState(1)
@@ -9,8 +10,9 @@ const Meal = ({ meal, handleAddtoCart }) => {
     setQuantity(newValue)
   }
 
-  return (
+return (
     <>
+    {console.log(meal)}
       <div className="meal-container">
         <div className="meal-card">
           <img src={meal.image} alt="" />

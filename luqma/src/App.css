@@ -12,6 +12,7 @@ body {
   padding: 0;
   background: linear-gradient(135deg, #f8fdf8 0%, #fff5f0 100%);
 }
+
 /* .restaurant-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -19,7 +20,7 @@ body {
   padding: 1rem;
 }
 
-.restaurant {
+/* .restaurant {
   background: #fff;
   border: 1px solid #ddd;
   padding: 1rem;
@@ -37,9 +38,9 @@ body {
   object-fit: cover;
   display: block;
   border-bottom: 1px solid #eee;
-}
+} */
 
-.restaurant h3,
+/* .restaurant h3,
 .restaurant h4 {
   margin: 0.75rem 1rem;
 } */
@@ -56,7 +57,7 @@ body {
   color: #333;
 } */
 
-.menu-container {
+/* .menu-container {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
@@ -70,8 +71,8 @@ body {
   width: 260px;
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-}
-
+} */
+/* 
 .meal-card h4 {
   margin: 0 0 0.5rem 0;
   font-size: 1.1rem;
@@ -84,12 +85,14 @@ body {
 
 .meal-price {
   font-weight: bold;
-}
+} */
 
 /* .wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: calc(100vh - 4rem); /* 4 because the top navbar height is 4 */
+  /* margin: 0 auto;
   height: calc(100vh - 4rem); 4 because the top navbar height is 4
   margin: 0 auto;
   padding: 0 1rem;
@@ -101,9 +104,9 @@ h1 {
 
 .wrapper-up {
   margin-top: 3rem;
-}
+} */ 
 
-.SignIn-form,
+/* .SignIn-form,
 .signUp-form {
   margin: 0;
   padding: 2rem;
@@ -117,9 +120,9 @@ h1 {
 .SignIn-form form div,
 .signUp-form form div {
   margin-bottom: 1.5rem;
-}
+} */
 
-.SignIn-form label,
+/* .SignIn-form label,
 .signUp-form label {
   display: block;
   margin-bottom: 0.5rem;
@@ -136,9 +139,9 @@ h1 {
   border-radius: 4px;
   box-sizing: border-box;
   transition: border-color 0.3s ease;
-}
+} */
 
-.SignIn-form input:focus,
+/* .SignIn-form input:focus,
 .signUp-form input:focus {
   border-color: #000000;
   outline: none;
@@ -156,9 +159,9 @@ h1 {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-}
+} */
 
-.SignIn-form button:disabled,
+/* .SignIn-form button:disabled,
 .signUp-form button:disabled {
   background-color: #d9d9d9;
   cursor: not-allowed;
@@ -174,9 +177,9 @@ h1 {
   color: #6b0606;
   font-weight: bold;
   text-decoration: none;
-}
+} */
 
-.signUp-form a:hover,
+/* .signUp-form a:hover,
 .SignIn-form a:hover {
   text-decoration: underline;
 } */
@@ -200,9 +203,9 @@ h1 {
 
 .sideNav.open {
   transform: translateX(0);
-}
+} */
 
-.sideNav a {
+/* .sideNav a {
   color: #333;
   text-decoration: none;
   font-weight: 600;
@@ -224,8 +227,8 @@ h1 {
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem;
-}
-.topNav-left .toggleBtn {
+} */
+/* .topNav-left .toggleBtn {
   background: none;
   border: none;
   font-size: 1.25rem;

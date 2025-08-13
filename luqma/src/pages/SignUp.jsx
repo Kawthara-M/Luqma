@@ -136,17 +136,17 @@ const SignUp = () => {
         <p style={{ marginTop: "1rem", textAlign: "center" }}>
           Already have an account? <Link to="/auth/sign-in">Sign In</Link>
         </p>
-      </div>
       {errorMessage === "" ? null : (
         <span
           style={{
-            fontWeight: "bold",
+            fontSize: ".8rem",
             color: "red",
           }}
         >
           {errorMessage}
         </span>
       )}
+      </div>
     </div>
   )
 }
