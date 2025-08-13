@@ -4,8 +4,11 @@ import { useNavigate, Link } from 'react-router-dom'
 
 import '../../public/styleSheets/auth.css'
 
+import validator from "validator"
+
 const SignUp = () => {
   let navigate = useNavigate()
+  const [errorMessage, setErrorMessage] = useState("")
 
   const initialState = {
     name: '',
@@ -20,12 +23,34 @@ const SignUp = () => {
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
   }
+  const validate = (value) => {
+    if (
+      validator.isStrongPassword(value, {
+        minLength: 8,
+        minLowercase: 1,
+        minUppercase: 1,
+        minNumbers: 1,
+        minSymbols: 1,
+      })
+    ) {
+      setErrorMessage("")
+    } else {
+      setErrorMessage("Weak Password! Have a mix of capital and lower letters, digits, and unique symbols!")
+    }
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await SignUpCustomer(formValues)
-    setFormValues(initialState)
-    navigate('/sign-in')
+
+    if (errorMessage) {
+      return
+    } else {
+      console.log(formValues)
+      const payload = await SignUpCustomer(formValues)
+      setFormValues(initialState)
+    }
+
+    navigate("/sign-in")
   }
 
   return (
@@ -73,7 +98,10 @@ const SignUp = () => {
             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
             title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
             placeholder="Password"
-            onChange={handleChange}
+            onChange={(e) => {
+              handleChange(e)
+              validate(e.target.value)
+            }}
             value={formValues.password}
             required
             autoComplete="off"
@@ -104,10 +132,21 @@ const SignUp = () => {
             Sign Up
           </button>
         </form>
-        <p style={{ marginTop: '1rem', textAlign: 'center' }}>
+
+        <p style={{ marginTop: "1rem", textAlign: "center" }}>
           Already have an account? <Link to="/auth/sign-in">Sign In</Link>
         </p>
       </div>
+      {errorMessage === "" ? null : (
+        <span
+          style={{
+            fontWeight: "bold",
+            color: "red",
+          }}
+        >
+          {errorMessage}
+        </span>
+      )}
     </div>
   )
 }

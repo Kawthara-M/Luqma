@@ -76,6 +76,7 @@ const UserDetails = ({ customerId }) => {
       })
   }
 
+
   const handleDelete = async (e) => {
     e.preventDefault()
     const confirmDelete = window.confirm(

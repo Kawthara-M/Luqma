@@ -4,6 +4,7 @@ import axios from "axios"
 
 const Menu = ({ meals, customer }) => {
   const [cart, setCart] = useState(null)
+  const [showLoginCard, setShowLoginCard] = useState(false)
 
   useEffect(() => {
     const getCart = async () => {
@@ -29,12 +30,11 @@ const Menu = ({ meals, customer }) => {
   const handleAddToCart = async (mealId, mealQuantity) => {
     try {
       if (!customer) {
-        alert("You must be signed in to add to cart.")
+        setShowLoginCard(true)
         return
       }
 
       if (cart) {
-
         const response = await axios.put(
           `http://localhost:3010/cart/${cart._id}`,
           { mealId, quantity: mealQuantity },
@@ -50,7 +50,7 @@ const Menu = ({ meals, customer }) => {
         const response = await axios.post(
           "http://localhost:3010/cart",
           {
-            meals: {meal:mealId, quantity:parseInt(mealQuantity)},
+            meals: { meal: mealId, quantity: parseInt(mealQuantity) },
           },
           {
             headers: {
@@ -67,13 +67,22 @@ const Menu = ({ meals, customer }) => {
 
   return (
     <div className="menu-container">
-      {meals.map((meal) => (
-        <Meal
-          key={meal._id}
-          meal={meal}
-          handleAddtoCart={(id,qty) => handleAddToCart(meal._id, qty)}
-        />
-      ))}
+      {meals.length > 0 ? (
+        meals.map((meal) => (
+          <Meal
+            key={meal._id}
+            meal={meal}
+            handleAddtoCart={(id, qty) => handleAddToCart(meal._id, qty)}
+          />
+        ))
+      ) : (
+        <div className="loader">
+          <div className="circle"></div>
+          <div className="circle"></div>
+          <div className="circle"></div>
+          <div className="circle"></div>
+        </div>
+      )}
     </div>
   )
 }
