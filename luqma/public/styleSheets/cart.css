@@ -8,7 +8,7 @@
   margin: 15px;
 }
 
-h2 {
+.meal-cart {
   margin-top: 100px;
   font-size: 2.5rem;
 }
@@ -60,7 +60,9 @@ input[type="number"] {
 .cart-buttons {
   display: flex;
   gap: 10px;
-  margin: .5rem;
+  margin-top: 8px;
+  margin: 10px;
+
 }
 
 .cart-buttons button {
@@ -92,6 +94,7 @@ input[type="number"] {
   font-weight: bold;
   font-size: 25px;
 }
+
 .empty-cart {
   margin-top: 20rem;
   font-size: 2.5rem;

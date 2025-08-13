@@ -19,6 +19,7 @@ const MealCart = ({ mealCart, handleEdit, handleDelete }) => {
 
   return (
     <div>
+      <h2 className="meal-cart">My Cart</h2>
       {mealCart.meals
         ? mealCart.meals.map((oneMeal) => (
             <>
