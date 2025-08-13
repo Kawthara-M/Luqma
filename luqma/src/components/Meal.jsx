@@ -1,3 +1,4 @@
+import '../../public/styleSheets/meal.css'
 import { useState, useEffect } from "react"
 
 const Meal = ({ meal, handleAddtoCart }) => {
@@ -9,16 +10,20 @@ const Meal = ({ meal, handleAddtoCart }) => {
   setQuantity(newValue)
 }
 
-  return (
-    <div className="meal-card">
+  return (<>
+  <div className="meal-container">
+      <div className="meal-card">
+      <img src={meal.image} alt="" />
       <h4>{meal.name}</h4>
-      <p>{meal.description}</p>
-      <p className="meal-price">${meal.price.toFixed(2)}</p>
-      <input type="number" name="quantity" value={quantity} onChange={updateQuantity}></input>
+      <p className='meal-discription'>{meal.description}</p>
+      <p className="meal-price">BD {meal.price.toFixed(2)}</p>
+      <input type="number" name="quantity" value={quantity} onChange={updateQuantity} ></input>
       <button onClick={() => handleAddtoCart(meal._id, quantity)}>
         Add to Cart
       </button>
+      </div>
     </div>
+    </>
   )
 }
 
