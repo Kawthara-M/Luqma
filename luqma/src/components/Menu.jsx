@@ -10,7 +10,7 @@ const Menu = ({ meals, customer }) => {
   useEffect(() => {
     const getCart = async () => {
       try {
-        const response = await axios.get("'https://luqma.onrender.com/cart", {
+        const response = await axios.get("https://luqma.onrender.com/cart", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
