@@ -10,7 +10,7 @@ const Menu = ({ meals, customer }) => {
   useEffect(() => {
     const getCart = async () => {
       try {
-        const response = await axios.get("http://localhost:3010/cart", {
+        const response = await axios.get("'https://luqma.onrender.com/cart", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -52,7 +52,7 @@ const Menu = ({ meals, customer }) => {
 
             if (restaurantIdFromCart === restaurantIdFromMeal) {
               const response = await axios.put(
-                `http://localhost:3010/cart/${cart._id}`,
+                `'https://luqma.onrender.com/cart/${cart._id}`,
                 { mealId, quantity: mealQuantity },
                 {
                   headers: {
@@ -67,7 +67,7 @@ const Menu = ({ meals, customer }) => {
           } else {
 
             const response = await axios.put(
-              `http://localhost:3010/cart/${cart._id}`,
+              `'https://luqma.onrender.com/cart/${cart._id}`,
               { mealId, quantity: mealQuantity },
               {
                 headers: {
@@ -82,7 +82,7 @@ const Menu = ({ meals, customer }) => {
         }
       } else {
         const response = await axios.post(
-          "http://localhost:3010/cart",
+          "'https://luqma.onrender.com/cart",
           {
             meals: { meal: mealId, quantity: parseInt(mealQuantity) },
           },
