@@ -52,7 +52,7 @@ const Menu = ({ meals, customer }) => {
 
             if (restaurantIdFromCart === restaurantIdFromMeal) {
               const response = await axios.put(
-                `'https://luqma.onrender.com/cart/${cart._id}`,
+                `https://luqma.onrender.com/cart/${cart._id}`,
                 { mealId, quantity: mealQuantity },
                 {
                   headers: {
@@ -67,7 +67,7 @@ const Menu = ({ meals, customer }) => {
           } else {
 
             const response = await axios.put(
-              `'https://luqma.onrender.com/cart/${cart._id}`,
+              `https://luqma.onrender.com/cart/${cart._id}`,
               { mealId, quantity: mealQuantity },
               {
                 headers: {
@@ -82,7 +82,7 @@ const Menu = ({ meals, customer }) => {
         }
       } else {
         const response = await axios.post(
-          "'https://luqma.onrender.com/cart",
+          "https://luqma.onrender.com/cart",
           {
             meals: { meal: mealId, quantity: parseInt(mealQuantity) },
           },

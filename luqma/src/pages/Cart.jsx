@@ -28,7 +28,7 @@ const Cart = () => {
   const handleEdit = async (orderId, mealId, mealQuantity) => {
     try {
       const response = await axios.put(
-        `'https://luqma.onrender.com/cart/${orderId}`,
+        `https://luqma.onrender.com/cart/${orderId}`,
         { mealId, quantity: mealQuantity, note: "note" },
         {
           headers: {
@@ -45,7 +45,7 @@ const Cart = () => {
   const handleDelete = async (orderId, mealId) => {
     try {
       const response = await axios.delete(
-        `'https://luqma.onrender.com/cart/${orderId}/meal/${mealId}`,
+        `https://luqma.onrender.com/cart/${orderId}/meal/${mealId}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
